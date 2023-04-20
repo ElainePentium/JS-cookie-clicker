@@ -1,0 +1,36 @@
+/****************************************************************************************
+*					STATISQUES					*
+****************************************************************************************/
+
+/*************************************** COOKIES ***************************************/
+
+let current_cookies 	// cookies en banque actuellement
+let producted_cookies 	// cookies produits depuis le début de la partie
+let game_time 		// temps actuel depuis le début de la partie
+let constructions	// somme totale de toutes les constructions
+let inProdCookies	// cookies produits par seconde
+
+/*************************************** OBJETS ****************************************/
+
+let numberClick			// nombre de clics actuellement en fonction
+let numberMoth			// nombre de grand-mères actuellement en fonction
+let numberFarm			// nombre de fermes actuellement en fonction
+let inProdCookiesClick		// cookies produits par un click par seconde
+let inProdCookiesMoth		// cookies produits par une grand-mère par seconde
+let inProdCookiesFarm		// cookies produits par une ferme par seconde
+let inProdAllCookiesClick	// cookies produits par l'ensemble des clicks par seconde
+let inProdAllCookiesMoth	// cookies produits par l'ensemble des grand-mères par seconde
+let inProdAllCookiesFarm	// cookies produits par l'ensemble des fermes par seconde
+let clickPrice			// le prix de base d'un click
+let mothPrice			// le prix de base d'une grand-mère
+let farmPrice			// le prix de base d'une ferme
+
+/************************************* AMELIORATIONS ***********************************/
+
+let firstClickImprov		// le pourcentage d'augmentation de production pour 1 clik
+let firstMothImprov		// le pourcentage d'augmentation de production pour 1 grand-mère
+let firstFarmImprov		// le pourcentage d'augmentation de production pour 1 ferme
+let firstClickPrice		// le prix de la première amélioration click
+let firstMothPrice		// le prix de la première amélioration grand-mère
+let firstFarmPrice		// le prix de la première amélioration ferme
+
