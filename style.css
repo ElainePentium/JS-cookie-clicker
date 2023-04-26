@@ -38,7 +38,7 @@ aside {
     height: 100%;
     background-color: var(--primary_color);
     color: var(--secondary_color);
-    font-size: 1.5rem;
+    /* font-size: 1.2rem; */
     padding: 2vw;
 }
 
@@ -56,4 +56,14 @@ aside {
 .grandma-picture {
     display: block;
     margin-right: 10px;
+}
+
+i {
+    margin-right: 20px;
+}
+
+.army-box div:first-child {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
 }

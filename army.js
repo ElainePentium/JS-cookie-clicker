@@ -11,35 +11,38 @@ farmFarming = new Farm();
 
 setInterval(function() {
     document.querySelector('#army-click .stats').innerHTML= "";
-    document.querySelector('#army-click .stats').append(`Number : ${clickFarming.number}`);
-    document.querySelector('#army-click .stats').insertAdjacentHTML('beforeend','<br>');
+    document.querySelector('#ClickNumber').innerHTML= "";
+    document.querySelector('#ClickNumber').append(`${clickFarming.number}`);
     document.querySelector('#army-click .stats').append(`Each click produces ${clickFarming.inProdCookies} per second`);
     document.querySelector('#army-click .stats').insertAdjacentHTML('beforeend','<br>');
-    document.querySelector('#army-click .stats').append(`${clickFarming.number} clicks produce ${clickFarming.inAllProdCookies} per second`);
+    document.querySelector('#army-click .stats').append(`${clickFarming.number} clicks produce ${clickFarming.inProdAllCookies.toFixed(1)} per second`);
     document.querySelector('#army-click .stats').insertAdjacentHTML('beforeend','<br>');
-    document.querySelector('#army-click .stats').append(`${clickFarming.productedCookies} clicked so far`);
+    document.querySelector('#army-click .stats').append(`${clickFarming.productedCookies.toFixed(1)} clicked so far`);
 
     document.querySelector('#army-grandma .stats').innerHTML= "";
-    document.querySelector('#army-grandma .stats').append(`Number : ${grandMaFarming.number}`);
-    document.querySelector('#army-grandma .stats').insertAdjacentHTML('beforeend','<br>');
+    document.querySelector('#GrandMaNumber').innerHTML= "";
+    document.querySelector('#GrandMaNumber').append(`${clickFarming.number}`);
     document.querySelector('#army-grandma .stats').append(`Each grand-mother produces ${grandMaFarming.inProdCookies} per second`);
     document.querySelector('#army-grandma .stats').insertAdjacentHTML('beforeend','<br>');
-    document.querySelector('#army-grandma .stats').append(`${grandMaFarming.number} grand-mother produce ${grandMaFarming.inAllProdCookies} per second`);
+    document.querySelector('#army-grandma .stats').append(`${grandMaFarming.number} grand-mother produce ${grandMaFarming.inProdAllCookies} per second`);
     document.querySelector('#army-grandma .stats').insertAdjacentHTML('beforeend','<br>');
     document.querySelector('#army-grandma .stats').append(`${grandMaFarming.productedCookies} cooked so far`);
 
     document.querySelector('#army-farm .stats').innerHTML= "";
-    document.querySelector('#army-farm .stats').append(`Number : ${farmFarming.number}`);
-    document.querySelector('#army-farm .stats').insertAdjacentHTML('beforeend','<br>');
+    document.querySelector('#FarmNumber').innerHTML= "";
+    document.querySelector('#FarmNumber').append(`${clickFarming.number}`);
     document.querySelector('#army-farm .stats').append(`Each farm produces ${farmFarming.inProdCookies} per second`);
     document.querySelector('#army-farm .stats').insertAdjacentHTML('beforeend','<br>');
-    document.querySelector('#army-farm .stats').append(`${farmFarming.number} farms produce ${farmFarming.inAllProdCookies} per second`);
+    document.querySelector('#army-farm .stats').append(`${farmFarming.number} farms produce ${farmFarming.inProdAllCookies} per second`);
     document.querySelector('#army-farm .stats').insertAdjacentHTML('beforeend','<br>');
     document.querySelector('#army-farm .stats').append(`${farmFarming.productedCookies} farmed so far`);
 
     clickFarming.buy();
     grandMaFarming.buy();
     farmFarming.buy();
+    clickFarming.produce();
+    grandMaFarming.produce();
+    farmFarming.produce();
 },1000);
 // document.querySelector('#army-click .stats').innerHTML= "";
 // document.querySelector('#army-click .stats').append(`Number : ${clickFarming.number}`);

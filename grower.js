@@ -1,7 +1,7 @@
 class Grower {
     constructor() {
         this.number= 0;
-        this.inProdCookies= 0;
+        this.inProdCookies= 0.0;
         this.inProdAllCookies= 0;
         this.productedCookies= 0;
         this.price=null;
@@ -14,7 +14,8 @@ class Grower {
     }
 
     produce() {
-
+        this.inProdAllCookies= this.inProdCookies*this.number;
+        this.productedCookies+= this.inProdAllCookies;
     }
 
     enableImprovement() {
