@@ -15,32 +15,35 @@
     <!-- Left page : army of objects -->
     <aside>
         <h2>ARMY</h2>
-        <div>
+        <div class="army-box" id="army-click">
             <div>
-                <i class="fa-sharp fa-solid fa-hand-pointer"></i>
-                Click
+                <div>
+                    <i class="fa-sharp fa-solid fa-hand-pointer"></i>
+                    Click
+                </div>
+                <div id="ClickNumber"></div>
             </div>
-            <div>
-                stats
-            </div>
+            <div class="stats"></div>
         </div>
-        <div>
-            <div class="box-grandma">
-                <img src="pictures/grandma.resized.png" alt="Grand-mothers" class="grandma-picture">
-                Grand-mothers
-            </div>
+        <div class="army-box" id="army-grandma">
             <div>
-                stats
+                <div class="box-grandma">
+                    <img src="pictures/grandma.resized.png" alt="Grand-mothers" class="grandma-picture">
+                    Grand-mothers
+                </div>
+                <div id="GrandMaNumber"></div>
             </div>
+            <div class="stats"></div>
         </div>
-        <div>
+        <div class="army-box" id="army-farm">
             <div>
-                <i class="fa-solid fa-tractor"></i>
-                Farms
+                <div>
+                    <i class="fa-solid fa-tractor"></i>
+                    Farms
+                </div>
+                <div id="FarmNumber"></div>
             </div>
-            <div>
-                stats
-            </div>
+            <div class="stats"></div>
         </div>
     </aside>
     <!-- Center page : Cookie and stats -->
@@ -95,20 +98,37 @@
     </main>
     <!-- Right page : Shop objects and updates-->
     <aside>
-        <h2>SHOP</h2>
-        <div>
-            <i class="fa-sharp fa-solid fa-hand-pointer"></i>
-            Click
+        <h2>STORE</h2>
+        <div class="store-box" id="store-click">
+            <div>
+                <i class="fa-sharp fa-solid fa-hand-pointer"></i>
+                Click
+            </div>
+            <div class="stats"></div>
+            <div>Autoclicks once every 10 seconds</div>
         </div>
-        <div class="box-grandma">
-            <img src="pictures/grandma.resized.png" alt="Grand-mothers" class="grandma-picture">
-            Grand-mothers
+        <div class="store-box" id="store-grandma">
+            <div class="box-grandma">
+                <img src="pictures/grandma.resized.png" alt="Grand-mothers" class="grandma-picture">
+                Grand-mothers
+            </div>
+            <div class="stats"></div>
+            <div>A nice granny to bake more cookies</div>
         </div>
-        <div>
-            <i class="fa-solid fa-tractor"></i>
-            Farms
+        <div class="store-box" id="store-farm">
+            <div>
+                <i class="fa-solid fa-tractor"></i>
+                Farms
+            </div>
+            <div class="stats"></div>
+            <div>Grows cookie plants from cookie seeds</div>
         </div>
     </aside>
-    <script src="main.js"></script>
+    <script src="grower.js"></script>
+    <script src="click.js"></script>
+    <script src="grandma.js"></script>
+    <script src="farm.js"></script>
+    <script src="army.js"></script>
+    <script src="store.js"></script>
 </body>
 </html>
