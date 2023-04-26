@@ -147,11 +147,15 @@ aside {
     margin-right: 10px;
 }
 
+.stats-army, .stats-store {
+    font-size: 1.1rem;
+}
+
 i {
     margin-right: 20px;
 }
 
-.stats i {
+.stats-army i, .stats-store i {
     margin-right: 0px;
 }
 
