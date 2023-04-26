@@ -1,0 +1,1 @@
+document.querySelector('#army-click .stats').append("Hello !!");
