@@ -28,21 +28,14 @@ main {
 aside {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    align-items: center;
-    justify-items: center; */
     width: 100%;
     height: 100%;
     background-color: var(--primary_color);
     color: var(--secondary_color);
-    /* font-size: 1.2rem; */
     padding: 2vw;
 }
 
-.army-box {
+.army-box, .store-box {
     margin-bottom: 1vh;
     padding: 2vh;
 }
@@ -65,5 +58,9 @@ i {
 .army-box div:first-child {
     display: flex;
     justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.store-box div:first-child {
     font-size: 1.5rem;
 }
