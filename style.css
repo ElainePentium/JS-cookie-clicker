@@ -28,21 +28,14 @@ main {
 aside {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    align-items: center;
-    justify-items: center; */
     width: 100%;
     height: 100%;
     background-color: var(--primary_color);
     color: var(--secondary_color);
-    font-size: 1.5rem;
     padding: 2vw;
 }
 
-aside div {
+.army-box, .store-box {
     margin-bottom: 1vh;
     padding: 2vh;
 }
@@ -56,4 +49,22 @@ aside div {
 .grandma-picture {
     display: block;
     margin-right: 10px;
+}
+
+i {
+    margin-right: 20px;
+}
+
+.stats i {
+    margin-right: 0px;
+}
+
+.army-box div:first-child {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.store-box div:first-child {
+    font-size: 1.5rem;
 }
