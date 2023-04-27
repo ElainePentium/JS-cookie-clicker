@@ -50,7 +50,7 @@ main {
     margin: auto;
     padding: 30px 10px;
     width: 70%;
-    transition: all .5s; /* ease-in-out; */
+    transition: all .5s;
 }
 
 .cookie:hover {
