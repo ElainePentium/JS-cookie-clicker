@@ -7,10 +7,12 @@ class Grower {
         this.price=null;
     }
 
-    buy() {
+    buy(cookie) {
         this.number++;
-        this.price= this.price*1.15;
         //modify Cookies Bank Sold
+        cookie.updateCookieAmount(this.price);
+        console.log("updateCookie: ", cookie.currentCookies);
+        this.price= this.price*1.15;
     }
 
     produce() {

@@ -39,23 +39,19 @@ main {
     /* background-color: var(--light-color); */
 }
 
+.title {
+    color: var(--secondary-color);
+    text-align: center;
+    padding-top: 10px;
+}
+
 .cookie {
     flex: 2;
     margin: auto;
     padding: 30px 10px;
     width: 70%;
-    transition: all .5s;
-    /* transition: all .2s ease-in-out; */
+    transition: all .5s; /* ease-in-out; */
 }
-/* .cookie:hover {
-    transform: scale(1.1);
-    transition: transform .2s ease-in-out;
-}
-
-.cookie-clicked {
-    transform: scale(0.9);
-    transition: scale(0.9) .2s ease-in-out;
-} */
 
 .cookie:hover {
     cursor: pointer;
@@ -163,7 +159,8 @@ aside {
 
 .grandma-picture {
     display: block;
-    margin-right: 10px;
+    width: 1em;
+    margin-right: 20px;
 }
 
 .stats-army, .stats-store {
