@@ -134,6 +134,25 @@ aside {
 .army-box, .store-box {
     margin-bottom: 1vh;
     padding: 2vh;
+    border-radius: 10px;
+}
+
+.army-box {
+    border-style: solid;
+}
+
+.store-box {
+    border-style: outset;
+}
+
+.store-box:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.store-box:active {
+    border-style: inset;
 }
 
 .box-grandma {
