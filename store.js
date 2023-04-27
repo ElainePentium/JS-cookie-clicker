@@ -17,7 +17,30 @@ document.getElementById('upgrades').addEventListener('click',(event) =>{
     document.getElementById('upgrades').classList.add('is-enable');
 })
 
-// Events on buy in store
+// Tab Upgrades content filler
+cursorFarming.enableUpgrades.forEach((element,i) => {
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<i class="fa-sharp fa-solid fa-hand-pointer" id="cursor-upgrade${i}"></i>`);
+    document.getElementById(`cursor-upgrade${i}`).addEventListener('click', (event) => {
+        cursorFarming.enableUpgrades[i]= true;
+        document.getElementById(`cursor-upgrade${i}`).remove();
+    });
+});
+grandMaFarming.enableUpgrades.forEach((element,i) => {
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<img src="pictures/grandma.resized.png" alt="Grand-mothers" class="grandma-picture" id="grandma-upgrade${i}">`);
+    document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
+        grandMaFarming.enableUpgrades[i]= true;
+        document.getElementById(`grandma-upgrade${i}`).remove();
+    });
+});
+farmFarming.enableUpgrades.forEach((element,i) => {
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<i class="fa-solid fa-tractor" id="farm-upgrade${i}"></i>`);
+    document.getElementById(`farm-upgrade${i}`).addEventListener('click', (event) => {
+        farmFarming.enableUpgrades[i]= true;
+        document.getElementById(`farm-upgrade${i}`).remove();
+    });
+});
+
+// Events on buy buildings in store
 document.getElementById('store-cursor').addEventListener('click',(event) => {
     cursorFarming.buy();
     document.querySelector('#store-cursor .stats-store').innerHTML= "";
