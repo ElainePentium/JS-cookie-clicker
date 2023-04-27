@@ -123,6 +123,7 @@ aside {
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     height: 100%;
     background-color: var(--primary-color);
@@ -135,6 +136,7 @@ aside {
     margin-bottom: 1vh;
     padding: 2vh;
     border-radius: 10px;
+    width: 100%;
 }
 
 .army-box {
@@ -143,6 +145,38 @@ aside {
 
 .store-box {
     border-style: outset;
+}
+
+.tab-store {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;;
+}
+
+.tab-store-button {
+    flex: 1;
+    text-align: center;
+    border-top: solid;
+    border-color: var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all .3s ease 0s;
+}
+
+.tab-store-button.is-enable {
+    background-color: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.tab-store-content {
+    display: none;
+}
+
+.tab-store-content.is-enable {
+    display: block;
 }
 
 .store-box:hover {
