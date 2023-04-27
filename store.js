@@ -26,7 +26,7 @@ cursorFarming.enableUpgrades.forEach((element,i) => {
     });
 });
 grandMaFarming.enableUpgrades.forEach((element,i) => {
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<img src="pictures/grandma.resized.png" alt="Grand-mothers" class="grandma-picture" id="grandma-upgrade${i}">`);
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<img src="pictures/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture" id="grandma-upgrade${i}">`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
         grandMaFarming.enableUpgrades[i]= true;
         document.getElementById(`grandma-upgrade${i}`).remove();
