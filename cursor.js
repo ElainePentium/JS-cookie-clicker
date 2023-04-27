@@ -1,4 +1,4 @@
-class Click extends Grower {
+class Cursor extends Grower {
     constructor() {
         super();
         this.price= 15;
