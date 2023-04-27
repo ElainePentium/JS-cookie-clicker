@@ -4,7 +4,8 @@ class Grower {
         this.inProdCookies= 0.0;
         this.inProdAllCookies= 0;
         this.productedCookies= 0;
-        this.price=null;
+        this.price= null;
+        this.enableUpgrades= new Array(3).fill(false);
     }
 
     buy(cookie) {
@@ -18,9 +19,5 @@ class Grower {
     produce() {
         this.inProdAllCookies= this.inProdCookies*this.number;
         this.productedCookies+= this.inProdAllCookies;
-    }
-
-    enableImprovement() {
-
     }
 }
