@@ -1,16 +1,17 @@
 // Instance Objects
-clickFarming = new Click();
+cursorFarming = new Cursor();
 grandMaFarming = new GrandMa();
 farmFarming = new Farm();
 
 setInterval(function() {
-    document.querySelector('#army-click .stats-army').innerHTML= "";
-    document.querySelector('#ClickNumber').innerHTML= "";
-    document.querySelector('#ClickNumber').append(`${clickFarming.number}`);
-    document.querySelector('#army-click .stats-army').insertAdjacentHTML('beforeend',
-        `Each click produces ${clickFarming.inProdCookies} <i class="fa-solid fa-cookie"></i> per second<br>
-        ${clickFarming.number} clicks produce ${clickFarming.inProdAllCookies.toFixed(1)} <i class="fa-solid fa-cookie"></i> per second<br>
-        ${clickFarming.productedCookies.toFixed(1)} <i class="fa-solid fa-cookie"></i> clicked so far
+    console.log(cursorFarming.number);
+    document.querySelector('#army-cursor .stats-army').innerHTML= "";
+    document.querySelector('#CursorNumber').innerHTML= "";
+    document.querySelector('#CursorNumber').append(`${cursorFarming.number}`);
+    document.querySelector('#army-cursor .stats-army').insertAdjacentHTML('beforeend',
+        `Each cursor produces ${cursorFarming.inProdCookies} <i class="fa-solid fa-cookie"></i> per second<br>
+        ${cursorFarming.number} cursors produce ${cursorFarming.inProdAllCookies.toFixed(1)} <i class="fa-solid fa-cookie"></i> per second<br>
+        ${cursorFarming.productedCookies.toFixed(1)} <i class="fa-solid fa-cookie"></i> clicked so far
     `);
     
     document.querySelector('#army-grandma .stats-army').innerHTML= "";
@@ -31,7 +32,7 @@ setInterval(function() {
         ${farmFarming.productedCookies} <i class="fa-solid fa-cookie"></i> farmed so far
     `);
     
-    clickFarming.produce();
+    cursorFarming.produce();
     grandMaFarming.produce();
     farmFarming.produce();
 },1000);
