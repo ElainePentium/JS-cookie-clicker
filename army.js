@@ -4,7 +4,6 @@ grandMaFarming = new GrandMa();
 farmFarming = new Farm();
 
 setInterval(function() {
-    console.log(cursorFarming.number);
     document.querySelector('#army-cursor .stats-army').innerHTML= "";
     document.querySelector('#CursorNumber').innerHTML= "";
     document.querySelector('#CursorNumber').append(`${cursorFarming.number}`);
@@ -32,7 +31,9 @@ setInterval(function() {
         ${farmFarming.productedCookies} <i class="fa-solid fa-cookie"></i> farmed so far
     `);
     
-    cursorFarming.produce();
-    grandMaFarming.produce();
-    farmFarming.produce();
+    cursorFarming.produce(cookie);
+    grandMaFarming.produce(cookie);
+    farmFarming.produce(cookie);
+
+    cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`;
 },1000);

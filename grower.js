@@ -16,8 +16,9 @@ class Grower {
         this.price= this.price*1.15;
     }
 
-    produce() {
+    produce(cookie) {
         this.inProdAllCookies= this.inProdCookies*this.number;
         this.productedCookies+= this.inProdAllCookies;
+        cookie.currentCookies += this.inProdAllCookies;
     }
 }

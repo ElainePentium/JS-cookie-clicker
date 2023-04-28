@@ -197,6 +197,11 @@ aside {
     margin-right: 20px;
 }
 
+#upgrades-tab .grandma-picture {
+    width: 2rem;
+    margin: 10px;
+}
+
 .stats-army, .stats-store {
     font-size: 1.1rem;
 }
