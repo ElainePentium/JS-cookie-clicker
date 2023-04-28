@@ -198,7 +198,7 @@ aside {
 }
 
 #upgrades-tab .grandma-picture {
-    width: 2rem;
+    width: 3rem;
     margin: 10px;
 }
 
@@ -236,7 +236,7 @@ i {
 }
 
 #upgrades-tab i {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin: 10px;
 }
 
@@ -244,9 +244,15 @@ i {
     display: none;
     background-color: var(--secondary-color);
     color: var(--primary-color);
+    font-size: 1rem;
+    padding: 5px;
     transition: all .9s ease .9s;
 }
 
 .info-upgrade.visible {
     display: block;
+}
+
+#upgrades-tab .info-upgrade i {
+    font-size: 1rem;
 }

@@ -1,4 +1,7 @@
 class Grower {
+    arrayUpgrades = [2,2,2];
+    upgradeFactor = 1;
+
     constructor() {
         this.number= 0;
         this.inProdCookies= 0.0;
@@ -17,8 +20,14 @@ class Grower {
     }
 
     produce(cookie) {
-        this.inProdAllCookies= this.inProdCookies*this.number;
+        this.inProdAllCookies= this.inProdCookies*this.number*this.upgradeFactor;
         this.productedCookies+= this.inProdAllCookies;
         cookie.currentCookies += this.inProdAllCookies;
+    }
+
+    upgrading(index) {
+        if(this.enableUpgrades[index] === true) {
+            this.upgradeFactor*= this.arrayUpgrades[index];
+        }
     }
 }
