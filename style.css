@@ -239,3 +239,17 @@ i {
     font-size: 2rem;
     margin: 10px;
 }
+
+.info-upgrade {
+    display: none;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transition: all .9s ease .9s;
+}
+
+.info-upgrade.visible {
+    display: block;
+    float: left;
+    position: relative;
+    /* left: 50px; */
+}
