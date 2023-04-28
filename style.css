@@ -249,7 +249,4 @@ i {
 
 .info-upgrade.visible {
     display: block;
-    float: left;
-    position: relative;
-    /* left: 50px; */
 }

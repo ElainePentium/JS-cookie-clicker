@@ -19,48 +19,48 @@ document.getElementById('upgrades').addEventListener('click',(event) =>{
 
 // Tab Upgrades content filler
 cursorFarming.enableUpgrades.forEach((element,i) => {
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<i class="fa-sharp fa-solid fa-hand-pointer" id="cursor-upgrade${i}"></i>`);
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div id="cursor-upgrade${i}"></div>`);
+    document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
     document.getElementById(`cursor-upgrade${i}`).addEventListener('click', (event) => {
         cursorFarming.enableUpgrades[i]= true;
         document.getElementById(`cursor-upgrade${i}`).remove();
     });
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend','<div class="info-upgrade">STATS</div>');
-    // document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('afterbegin','<div class="info-upgrade">STATS</div>');
+    document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<div class="info-upgrade">STATS</div>');
     document.getElementById(`cursor-upgrade${i}`).addEventListener('mouseover', (event) => {
-        document.querySelector(`#cursor-upgrade${i} + .info-upgrade`).classList.add('visible'); 
+        document.querySelector(`#cursor-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
     document.getElementById(`cursor-upgrade${i}`).addEventListener('mouseout', (event) => {
-        document.querySelector(`#cursor-upgrade${i} + .info-upgrade`).classList.remove('visible'); 
+        document.querySelector(`#cursor-upgrade${i} .info-upgrade`).classList.remove('visible'); 
     });
 });
 grandMaFarming.enableUpgrades.forEach((element,i) => {
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<img src="pictures/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture" id="grandma-upgrade${i}">`);
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div id="grandma-upgrade${i}"></div>`);
+    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<img src="pictures/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
         grandMaFarming.enableUpgrades[i]= true;
         document.getElementById(`grandma-upgrade${i}`).remove();
     });
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend','<div class="info-upgrade">STATS</div>');
-    // document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('afterbegin','<div class="info-upgrade">STATS</div>');
+    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend','<div class="info-upgrade">STATS</div>');
     document.getElementById(`grandma-upgrade${i}`).addEventListener('mouseover', (event) => {
-        document.querySelector(`#grandma-upgrade${i} + .info-upgrade`).classList.add('visible'); 
+        document.querySelector(`#grandma-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
     document.getElementById(`grandma-upgrade${i}`).addEventListener('mouseout', (event) => {
-        document.querySelector(`#grandma-upgrade${i} + .info-upgrade`).classList.remove('visible'); 
+        document.querySelector(`#grandma-upgrade${i} .info-upgrade`).classList.remove('visible'); 
     });
 });
 farmFarming.enableUpgrades.forEach((element,i) => {
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<i class="fa-solid fa-tractor" id="farm-upgrade${i}"></i>`);
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div id="farm-upgrade${i}"></div>`);
+    document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',`<i class="fa-solid fa-tractor"></i>`);
     document.getElementById(`farm-upgrade${i}`).addEventListener('click', (event) => {
         farmFarming.enableUpgrades[i]= true;
         document.getElementById(`farm-upgrade${i}`).remove();
     });
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend','<div class="info-upgrade">STATS</div>');
-    // document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('afterbegin','<div class="info-upgrade">STATS</div>');
+    document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend','<div class="info-upgrade">STATS</div>');
     document.getElementById(`farm-upgrade${i}`).addEventListener('mouseover', (event) => {
-        document.querySelector(`#farm-upgrade${i} + .info-upgrade`).classList.add('visible'); 
+        document.querySelector(`#farm-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
     document.getElementById(`farm-upgrade${i}`).addEventListener('mouseout', (event) => {
-        document.querySelector(`#farm-upgrade${i} + .info-upgrade`).classList.remove('visible'); 
+        document.querySelector(`#farm-upgrade${i} .info-upgrade`).classList.remove('visible'); 
     });
 });
 
