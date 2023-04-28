@@ -229,10 +229,12 @@ i {
 }
 
 #upgrades-tab.is-enable {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: center; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #upgrades-tab i {
