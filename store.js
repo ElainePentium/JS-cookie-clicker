@@ -70,7 +70,6 @@ farmFarming.enableUpgrades.forEach((element,i) => {
 // Events on buy buildings in store
 document.getElementById('store-cursor').addEventListener('click',(event) => {
     cursorFarming.buy(cookie);
-    document.querySelector(".title h1").innerHTML = `${cookie.currentCookies} cookies`
     document.querySelector('#store-cursor .stats-store').innerHTML= "";
     document.querySelector('#store-cursor .stats-store').insertAdjacentHTML('beforeend',`Costs ${cursorFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
 });

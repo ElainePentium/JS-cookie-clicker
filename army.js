@@ -19,7 +19,7 @@ setInterval(function() {
     document.querySelector('#army-grandma .stats-army').insertAdjacentHTML('beforeend',
         `Each grand-mother produces ${grandMaFarming.inProdCookies} <i class="fa-solid fa-cookie"></i> per second<br>
         ${grandMaFarming.number} grand-mother produce ${grandMaFarming.inProdAllCookies} <i class="fa-solid fa-cookie"></i> per second<br>
-        ${grandMaFarming.productedCookies} <i class="fa-solid fa-cookie"></i> cooked so far
+        ${grandMaFarming.productedCookies.toFixed(0)} <i class="fa-solid fa-cookie"></i> cooked so far
     `);
     
     document.querySelector('#army-farm .stats-army').innerHTML= "";
@@ -28,12 +28,15 @@ setInterval(function() {
     document.querySelector('#army-farm .stats-army').insertAdjacentHTML('beforeend',
         `Each farm produces ${farmFarming.inProdCookies} <i class="fa-solid fa-cookie"></i> per second<br>
         ${farmFarming.number} farms produce ${farmFarming.inProdAllCookies} <i class="fa-solid fa-cookie"></i> per second<br>
-        ${farmFarming.productedCookies} <i class="fa-solid fa-cookie"></i> farmed so far
+        ${farmFarming.productedCookies.toFixed(0)} <i class="fa-solid fa-cookie"></i> farmed so far
     `);
     
     cursorFarming.produce(cookie);
     grandMaFarming.produce(cookie);
     farmFarming.produce(cookie);
 
+    cookie.cookiesPerSecond = cursorFarming.inProdAllCookies + grandMaFarming.inProdAllCookies + farmFarming.inProdAllCookies;
+
     cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`;
-},1000);
+    cookiePSTitle.innerHTML = `${cookie.cookiesPerSecond.toFixed(2)} cookies`;
+},100);

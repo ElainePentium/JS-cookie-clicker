@@ -30,7 +30,7 @@ const cookiePSTitle = document.querySelector(".title h3");
 const cookieButton = document.querySelector(".cookie");
 cookieButton.addEventListener("click", () => {
     cookie.currentCookies++;
-    cookieTitle.innerHTML = `${cookie.currentCookies} cookies`
+    cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`
 })
 
 // change color of grandma icon on hover
