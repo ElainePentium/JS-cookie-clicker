@@ -12,9 +12,10 @@ setInterval(function() {
     farmFarming.produce(cookie);
 
     updateCookieStats(cookie);
+    updateSuccess(cookie)
 },100);
 
-console.log("cookie: ", cookie.currentCookies)
+// console.log("cookie: ", cookie.currentCookies)
 
 
 // h1 number of cookies update in title

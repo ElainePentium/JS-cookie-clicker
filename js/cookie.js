@@ -1,6 +1,6 @@
 const cookie = {
     // cookies en banque actuellement
-    currentCookies: 0,
+    currentCookies: 100000,
     // cookies produits par seconde
     cookiesPerSecond: 0.00,
     // cookies produits poar clic
