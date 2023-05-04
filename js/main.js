@@ -42,8 +42,10 @@ for (let i = 0; i < tabs.length; i++) {
 }
 
 // h1 number of cookies update in title
-const cookieTitle = document.querySelector(".title h1");
-const cookiePSTitle = document.querySelector(".title h3");
+const cookieTitle = document.querySelector(".cookie-title h1");
+const cookiePSTitle = document.querySelector("#per-second");
+cookieTitle.innerHTML = `${cookie.currentCookies} cookies`;
+cookiePSTitle.innerHTML = `per second: ${cursorFarming.inProdAllCookies + grandMaFarming.inProdAllCookies + farmFarming.inProdAllCookies}`;
 
 // cookie behavior - scale in and out on click
 const cookieButton = document.querySelector(".cookie");
