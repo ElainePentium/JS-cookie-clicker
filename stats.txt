@@ -1,5 +1,5 @@
 /****************************************************************************************
-*					STATISQUES					*
+*				                       	STATISQUES	                    				*
 ****************************************************************************************/
 
 /*************************************** COOKIES ***************************************/
@@ -12,21 +12,24 @@ cookiesPerSecond	// cookies produits par seconde
 
 /*************************************** OBJETS ****************************************/
 
-Click.number		        // nombre de clics actuellement en fonction
+Cursor.number		        // nombre de clics actuellement en fonction
 GrandMa.number		        // nombre de grand-mères actuellement en fonction
 Farm.number			        // nombre de fermes actuellement en fonction
-Click.inProdCookies		    // cookies produits par un click par seconde
+Cursor.inProdCookies		// cookies produits par un click par seconde
 GrandMa.inProdCookies	    // cookies produits par une grand-mère par seconde
 Farm.inProdCookies		    // cookies produits par une ferme par seconde
-Click.inProdAllCookies	    // cookies produits par l'ensemble des clicks par seconde
+Cursor.inProdAllCookies	    // cookies produits par l'ensemble des clicks par seconde
 GrandMa.inProdAllCookies    // cookies produits par l'ensemble des grand-mères par seconde
 Farm.inProdAllCookies	    // cookies produits par l'ensemble des fermes par seconde
-Click.price			        // le prix de base d'un click
+Cursor.price			    // le prix de base d'un click
 GrandMa.price		        // le prix de base d'une grand-mère
 Farm.price			        // le prix de base d'une ferme
+upgrades                    // tableau d'objets de type Upgrade
+upgradeFactor               // facteur de multiplication cumulé de toutes les améliorations actives
 
 /************************************* AMELIORATIONS ***********************************/
 
-arrayUpgrades   // tableau des facteurs de mutliplication des améliorations
-upgradeFactor   // facteur de multiplication qui cumule toutes les améliorations actives
-enableUpgrades  // tableau d'activation des améliorations
+upgrade.factor          // facteur de mutliplication de l'amélioration
+upgrade.name            // nom de l'amélioration   
+upgrade.info            // infos de l'amélioration
+upgrade.price           // prix de l'amélioration
