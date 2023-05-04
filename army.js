@@ -36,4 +36,5 @@ setInterval(function() {
     farmFarming.produce(cookie);
 
     cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`;
+    cookiePSTitle.innerHTML = `per second: ${(cursorFarming.inProdAllCookies + grandMaFarming.inProdAllCookies + farmFarming.inProdAllCookies).toFixed(2)}`;
 },1000);

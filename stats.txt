@@ -6,9 +6,9 @@
 
 let currentCookies 	// cookies en banque actuellement
 let productedCookies 	// cookies produits depuis le début de la partie
-let gameTime 		// temps actuel depuis le début de la partie
-let constructions	// somme totale de toutes les constructions
-let inProdCookies	// cookies produits par seconde
+let gameTime 		// temps actuel depuis le début de la partie ==> afficher sous le cookie directement
+let constructions	// somme totale de toutes les constructions ==> afficher dans stats directement
+let inProdCookies => cookiesPerSecond	// cookies produits par seconde
 
 /*************************************** OBJETS ****************************************/
 
