@@ -1,5 +1,6 @@
 class Grower {
-    arrayUpgrades = [2,2,2];
+    // arrayUpgrades = [2,2,2];
+    upgrades = [];
     upgradeFactor = 1;
 
     constructor() {
@@ -8,7 +9,7 @@ class Grower {
         this.inProdAllCookies= 0;
         this.productedCookies= 0;
         this.price= null;
-        this.enableUpgrades= new Array(3).fill(false);
+        // this.enableUpgrades= new Array(3).fill(false);
     }
 
     buy(cookie) {
@@ -25,8 +26,8 @@ class Grower {
     }
 
     upgrading(index) {
-        if(this.enableUpgrades[index] === true) {
-            this.upgradeFactor*= this.arrayUpgrades[index];
+        if(this.upgrades[index].enable === true) {
+            this.upgradeFactor*= this.upgrades[index].factor;
         }
     }
 }

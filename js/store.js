@@ -28,15 +28,16 @@ document.getElementById('upgrades').addEventListener('click',(event) =>{
 })
 
 // Tab Upgrades content filler
-cursorFarming.enableUpgrades.forEach((element,i) => {
+cursorFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="cursor-upgrade${i}"></div>`);
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
     document.getElementById(`cursor-upgrade${i}`).addEventListener('click', (event) => {
-        cursorFarming.enableUpgrades[i]= true;
+        cursorFarming.upgrades[i].enable= true;
         cursorFarming.upgrading(i);
         document.getElementById(`cursor-upgrade${i}`).remove();
     });
-    document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend',`<div class="info-upgrade">${cursorFarming.infosUpgrades[i]}</div>`);
+    document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend',
+        `<div class="info-upgrade">${cursorFarming.upgrades[i].info}<br>Cost : ${cursorFarming.upgrades[i].price} <i class="fa-solid fa-cookie"></i></div>`);  //`<div class="info-upgrade">${cursorFarming.infosUpgrades[i]}</div>`);
     document.getElementById(`cursor-upgrade${i}`).addEventListener('mouseover', (event) => {
         document.querySelector(`#cursor-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
@@ -44,15 +45,16 @@ cursorFarming.enableUpgrades.forEach((element,i) => {
         document.querySelector(`#cursor-upgrade${i} .info-upgrade`).classList.remove('visible'); 
     });
 });
-grandMaFarming.enableUpgrades.forEach((element,i) => {
+grandMaFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="grandma-upgrade${i}"></div>`);
     document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
-        grandMaFarming.enableUpgrades[i]= true;
+        grandMaFarming.upgrades[i].enable= true;
         grandMaFarming.upgrading(i);
         document.getElementById(`grandma-upgrade${i}`).remove();
     });
-    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<div class="info-upgrade">${grandMaFarming.infosUpgrades[i]}</div>`);
+    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',
+    `<div class="info-upgrade">${grandMaFarming.upgrades[i].info}<br>Cost : ${grandMaFarming.upgrades[i].price} <i class="fa-solid fa-cookie"></i></div>`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('mouseover', (event) => {
         document.querySelector(`#grandma-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
@@ -60,15 +62,16 @@ grandMaFarming.enableUpgrades.forEach((element,i) => {
         document.querySelector(`#grandma-upgrade${i} .info-upgrade`).classList.remove('visible'); 
     });
 });
-farmFarming.enableUpgrades.forEach((element,i) => {
+farmFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="farm-upgrade${i}"></div>`);
     document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',`<i class="fa-solid fa-tractor"></i>`);
     document.getElementById(`farm-upgrade${i}`).addEventListener('click', (event) => {
-        farmFarming.enableUpgrades[i]= true;
+        farmFarming.upgrades[i].enable= true;
         farmFarming.upgrading(i);
         document.getElementById(`farm-upgrade${i}`).remove();
     });
-    document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',`<div class="info-upgrade">${farmFarming.infosUpgrades[i]}</div>`);
+    document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',
+        `<div class="info-upgrade">${farmFarming.upgrades[i].info}<br>Cost : ${farmFarming.upgrades[i].price} <i class="fa-solid fa-cookie"></i></div>`);
     document.getElementById(`farm-upgrade${i}`).addEventListener('mouseover', (event) => {
         document.querySelector(`#farm-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });

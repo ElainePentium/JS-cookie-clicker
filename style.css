@@ -255,12 +255,12 @@ i {
     font-size: 1rem;
 }
 
-#store-cursor, #store-grandma, #store-farm, .update {
+#store-cursor, #store-grandma, #store-farm { /*.update {*/
     pointer-events: none;
     opacity: 0.3;
 }
 
-#store-cursor.buying-enabled, #store-grandma.buying-enabled, #store-farm.buying-enabled, .update.buying-enabled {
+#store-cursor.buying-enabled, #store-grandma.buying-enabled, #store-farm.buying-enabled { /*.update.buying-enabled*/
     pointer-events: auto;
     opacity: 1;
 }
