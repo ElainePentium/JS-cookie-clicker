@@ -4,33 +4,29 @@
 
 /*************************************** COOKIES ***************************************/
 
-let currentCookies 	// cookies en banque actuellement
-let productedCookies 	// cookies produits depuis le début de la partie
-let gameTime 		// temps actuel depuis le début de la partie ==> afficher sous le cookie directement
-let constructions	// somme totale de toutes les constructions ==> afficher dans stats directement
-let inProdCookies => cookiesPerSecond	// cookies produits par seconde
+currentCookies 	    // cookies en banque actuellement
+productedCookies 	// cookies produits depuis le début de la partie
+gameTime 		    // temps actuel depuis le début de la partie
+constructions	    // somme totale de toutes les constructions
+cookiesPerSecond	// cookies produits par seconde
 
 /*************************************** OBJETS ****************************************/
 
-let Click.number		// nombre de clics actuellement en fonction
-let GrandMa.number		// nombre de grand-mères actuellement en fonction
-let Farm.number			// nombre de fermes actuellement en fonction
-let Click.inProdCookies		// cookies produits par un click par seconde
-let GrandMa.inProdCookies	// cookies produits par une grand-mère par seconde
-let Farm.inProdCookies		// cookies produits par une ferme par seconde
-let Click.inProdAllCookies	// cookies produits par l'ensemble des clicks par seconde
-let GrandMa.inProdAllCookies	// cookies produits par l'ensemble des grand-mères par seconde
-let Farm.inProdAllCookies	// cookies produits par l'ensemble des fermes par seconde
-let Click.Price			// le prix de base d'un click
-let GrandMa.price		// le prix de base d'une grand-mère
-let Farm.Price			// le prix de base d'une ferme
+Click.number		        // nombre de clics actuellement en fonction
+GrandMa.number		        // nombre de grand-mères actuellement en fonction
+Farm.number			        // nombre de fermes actuellement en fonction
+Click.inProdCookies		    // cookies produits par un click par seconde
+GrandMa.inProdCookies	    // cookies produits par une grand-mère par seconde
+Farm.inProdCookies		    // cookies produits par une ferme par seconde
+Click.inProdAllCookies	    // cookies produits par l'ensemble des clicks par seconde
+GrandMa.inProdAllCookies    // cookies produits par l'ensemble des grand-mères par seconde
+Farm.inProdAllCookies	    // cookies produits par l'ensemble des fermes par seconde
+Click.price			        // le prix de base d'un click
+GrandMa.price		        // le prix de base d'une grand-mère
+Farm.price			        // le prix de base d'une ferme
 
 /************************************* AMELIORATIONS ***********************************/
 
-let firstClickImprov		// le pourcentage d'augmentation de production pour 1 clik
-let firstGMaImprov		// le pourcentage d'augmentation de production pour 1 grand-mère
-let firstFarmImprov		// le pourcentage d'augmentation de production pour 1 ferme
-let firstClickPrice		// le prix de la première amélioration click
-let firstMothPrice		// le prix de la première amélioration grand-mère
-let firstFarmPrice		// le prix de la première amélioration ferme
-
+arrayUpgrades   // tableau des facteurs de mutliplication des améliorations
+upgradeFactor   // facteur de multiplication qui cumule toutes les améliorations actives
+enableUpgrades  // tableau d'activation des améliorations

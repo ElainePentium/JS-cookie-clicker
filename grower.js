@@ -15,14 +15,13 @@ class Grower {
         this.number++;
         //modify Cookies Bank Sold
         cookie.updateCookieAmount(this.price);
-        console.log("updateCookie: ", cookie.currentCookies);
         this.price= this.price*1.15;
     }
 
     produce(cookie) {
-        this.inProdAllCookies= this.inProdCookies*this.number*this.upgradeFactor;
-        this.productedCookies+= this.inProdAllCookies;
-        cookie.currentCookies += this.inProdAllCookies;
+        this.inProdAllCookies= this.inProdCookies*this.number*this.upgradeFactor; 
+        this.productedCookies+= this.inProdAllCookies/10; // divide by 10 because refresh set at 100ms
+        cookie.currentCookies += this.inProdAllCookies/10;
     }
 
     upgrading(index) {

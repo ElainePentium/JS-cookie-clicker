@@ -1,9 +1,5 @@
-// Instance Objects
-cursorFarming = new Cursor();
-grandMaFarming = new GrandMa();
-farmFarming = new Farm();
-
-setInterval(function() {
+// Function that implements the content view of armies in the left (quantity, production)
+function army(cookie) {
     document.querySelector('#army-cursor .stats-army').innerHTML= "";
     document.querySelector('#CursorNumber').innerHTML= "";
     document.querySelector('#CursorNumber').append(`${cursorFarming.number}`);
@@ -19,7 +15,7 @@ setInterval(function() {
     document.querySelector('#army-grandma .stats-army').insertAdjacentHTML('beforeend',
         `Each grand-mother produces ${grandMaFarming.inProdCookies} <i class="fa-solid fa-cookie"></i> per second<br>
         ${grandMaFarming.number} grand-mother produce ${grandMaFarming.inProdAllCookies} <i class="fa-solid fa-cookie"></i> per second<br>
-        ${grandMaFarming.productedCookies} <i class="fa-solid fa-cookie"></i> cooked so far
+        ${grandMaFarming.productedCookies.toFixed(0)} <i class="fa-solid fa-cookie"></i> cooked so far
     `);
     
     document.querySelector('#army-farm .stats-army').innerHTML= "";
@@ -28,13 +24,6 @@ setInterval(function() {
     document.querySelector('#army-farm .stats-army').insertAdjacentHTML('beforeend',
         `Each farm produces ${farmFarming.inProdCookies} <i class="fa-solid fa-cookie"></i> per second<br>
         ${farmFarming.number} farms produce ${farmFarming.inProdAllCookies} <i class="fa-solid fa-cookie"></i> per second<br>
-        ${farmFarming.productedCookies} <i class="fa-solid fa-cookie"></i> farmed so far
+        ${farmFarming.productedCookies.toFixed(0)} <i class="fa-solid fa-cookie"></i> farmed so far
     `);
-    
-    cursorFarming.produce(cookie);
-    grandMaFarming.produce(cookie);
-    farmFarming.produce(cookie);
-
-    cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`;
-    cookiePSTitle.innerHTML = `per second: ${(cursorFarming.inProdAllCookies + grandMaFarming.inProdAllCookies + farmFarming.inProdAllCookies).toFixed(2)}`;
-},1000);
+}
