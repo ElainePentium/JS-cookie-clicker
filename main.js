@@ -3,8 +3,10 @@ cursorFarming = new Cursor();
 grandMaFarming = new GrandMa();
 farmFarming = new Farm();
 
+// Produce and refresh view every 100ms
 setInterval(function() {
     army(cookie);
+    store(cookie);
     cursorFarming.produce(cookie);
     grandMaFarming.produce(cookie);
     farmFarming.produce(cookie);

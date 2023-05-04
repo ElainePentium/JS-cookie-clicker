@@ -29,7 +29,7 @@ document.getElementById('upgrades').addEventListener('click',(event) =>{
 
 // Tab Upgrades content filler
 cursorFarming.enableUpgrades.forEach((element,i) => {
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div id="cursor-upgrade${i}"></div>`);
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="cursor-upgrade${i}"></div>`);
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
     document.getElementById(`cursor-upgrade${i}`).addEventListener('click', (event) => {
         cursorFarming.enableUpgrades[i]= true;
@@ -45,7 +45,7 @@ cursorFarming.enableUpgrades.forEach((element,i) => {
     });
 });
 grandMaFarming.enableUpgrades.forEach((element,i) => {
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div id="grandma-upgrade${i}"></div>`);
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="grandma-upgrade${i}"></div>`);
     document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<img src="pictures/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
         grandMaFarming.enableUpgrades[i]= true;
@@ -61,7 +61,7 @@ grandMaFarming.enableUpgrades.forEach((element,i) => {
     });
 });
 farmFarming.enableUpgrades.forEach((element,i) => {
-    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div id="farm-upgrade${i}"></div>`);
+    document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="farm-upgrade${i}"></div>`);
     document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',`<i class="fa-solid fa-tractor"></i>`);
     document.getElementById(`farm-upgrade${i}`).addEventListener('click', (event) => {
         farmFarming.enableUpgrades[i]= true;
@@ -94,4 +94,22 @@ document.getElementById('store-farm').addEventListener('click',(event) => {
     document.querySelector('#store-farm .stats-store').insertAdjacentHTML('beforeend',`Costs ${farmFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
 });
 
-// Events that enable buying buildings in store
+// Enable buying buildings in store
+function store(cookie) {
+    if(cookie.currentCookies >= cursorFarming.price)
+        document.getElementById('store-cursor').classList.add('buying-enabled');
+    else
+        document.getElementById('store-cursor').classList.remove('buying-enabled');
+
+    if(cookie.currentCookies >= grandMaFarming.price)
+        document.getElementById('store-grandma').classList.add('buying-enabled');
+    else
+        document.getElementById('store-grandma').classList.remove('buying-enabled');
+
+    if(cookie.currentCookies >= farmFarming.price)
+        document.getElementById('store-farm').classList.add('buying-enabled');
+    else
+        document.getElementById('store-farm').classList.remove('buying-enabled');
+
+    // if(cursorFarming.number > 0 )
+}
