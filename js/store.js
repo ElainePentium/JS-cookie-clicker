@@ -98,7 +98,7 @@ document.getElementById('store-farm').addEventListener('click',(event) => {
 });
 
 // Enable buying buildings in store
-function store(cookie) {
+const store = (cookie) => {
     if(cookie.currentCookies >= cursorFarming.price)
         document.getElementById('store-cursor').classList.add('buying-enabled');
     else
