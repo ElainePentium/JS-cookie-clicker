@@ -28,19 +28,35 @@ document.getElementById('upgrades').addEventListener('click',(event) =>{
 })
 
 // Tab Upgrades content filler
-// const upgradeContentFiller = (arrayFarmingUpgrades,farmName,farmIcon) => {
-
-// }
+const upgradeContentFiller = (farm,objectName,farmIcon) => {
+    farm.upgrades.forEach((element,i) => {
+        document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="cursor-upgrade${i}"></div>`);
+        document.getElementById(`${objectName}-upgrade${i}`).insertAdjacentHTML('beforeend', farmIcon); //'<i class="fa-sharp fa-solid fa-hand-pointer"></i>'
+        document.getElementById(`${objectName}-upgrade${i}`).addEventListener('click', (event) => {
+            element.enable= true;
+            farm.upgrading(i,cookie);
+            document.getElementById(`cursor-upgrade${i}`).remove();
+        });
+        document.getElementById(`${objectName}-upgrade${i}`).insertAdjacentHTML('beforeend',
+            `<div class="info-upgrade">${element.info}<br>Cost : ${element.price} <i class="fa-solid fa-cookie"></i></div>`);
+        document.getElementById(`${objectName}-upgrade${i}`).addEventListener('mouseover', (event) => {
+            document.querySelector(`#${objectName}-upgrade${i} .info-upgrade`).classList.add('visible'); 
+        });
+        document.getElementById(`${objectName}-upgrade${i}`).addEventListener('mouseout', (event) => {
+            document.querySelector(`#${objectName}-upgrade${i} .info-upgrade`).classList.remove('visible'); 
+        });
+    });
+}
 cursorFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="cursor-upgrade${i}"></div>`);
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
     document.getElementById(`cursor-upgrade${i}`).addEventListener('click', (event) => {
-        cursorFarming.upgrades[i].enable= true;
+        element.enable= true;
         cursorFarming.upgrading(i,cookie);
         document.getElementById(`cursor-upgrade${i}`).remove();
     });
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend',
-        `<div class="info-upgrade">${cursorFarming.upgrades[i].info}<br>Cost : ${cursorFarming.upgrades[i].price} <i class="fa-solid fa-cookie"></i></div>`);  //`<div class="info-upgrade">${cursorFarming.infosUpgrades[i]}</div>`);
+        `<div class="info-upgrade">${element.info}<br>Cost : ${element.price} <i class="fa-solid fa-cookie"></i></div>`);
     document.getElementById(`cursor-upgrade${i}`).addEventListener('mouseover', (event) => {
         document.querySelector(`#cursor-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
