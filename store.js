@@ -83,3 +83,5 @@ document.getElementById('store-farm').addEventListener('click',(event) => {
     document.querySelector('#store-farm .stats-store').innerHTML= "";
     document.querySelector('#store-farm .stats-store').insertAdjacentHTML('beforeend',`Costs ${farmFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
 });
+
+// Events that enable buying buildings in store
