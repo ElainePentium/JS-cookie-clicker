@@ -28,15 +28,16 @@ document.getElementById('upgrades').addEventListener('click',(event) =>{
 })
 
 // Tab Upgrades content filler
-cursorFarming.enableUpgrades.forEach((element,i) => {
+cursorFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="cursor-upgrade${i}"></div>`);
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
     document.getElementById(`cursor-upgrade${i}`).addEventListener('click', (event) => {
-        cursorFarming.enableUpgrades[i]= true;
-        cursorFarming.upgrading(i);
+        cursorFarming.upgrades[i].enable= true;
+        cursorFarming.upgrading(i,cookie);
         document.getElementById(`cursor-upgrade${i}`).remove();
     });
-    document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend',`<div class="info-upgrade">${cursorFarming.infosUpgrades[i]}</div>`);
+    document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend',
+        `<div class="info-upgrade">${cursorFarming.upgrades[i].info}<br>Cost : ${cursorFarming.upgrades[i].price} <i class="fa-solid fa-cookie"></i></div>`);  //`<div class="info-upgrade">${cursorFarming.infosUpgrades[i]}</div>`);
     document.getElementById(`cursor-upgrade${i}`).addEventListener('mouseover', (event) => {
         document.querySelector(`#cursor-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
@@ -44,15 +45,16 @@ cursorFarming.enableUpgrades.forEach((element,i) => {
         document.querySelector(`#cursor-upgrade${i} .info-upgrade`).classList.remove('visible'); 
     });
 });
-grandMaFarming.enableUpgrades.forEach((element,i) => {
+grandMaFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="grandma-upgrade${i}"></div>`);
     document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
-        grandMaFarming.enableUpgrades[i]= true;
-        grandMaFarming.upgrading(i);
+        grandMaFarming.upgrades[i].enable= true;
+        grandMaFarming.upgrading(i,cookie);
         document.getElementById(`grandma-upgrade${i}`).remove();
     });
-    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<div class="info-upgrade">${grandMaFarming.infosUpgrades[i]}</div>`);
+    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',
+    `<div class="info-upgrade">${grandMaFarming.upgrades[i].info}<br>Cost : ${grandMaFarming.upgrades[i].price} <i class="fa-solid fa-cookie"></i></div>`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('mouseover', (event) => {
         document.querySelector(`#grandma-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
@@ -60,15 +62,16 @@ grandMaFarming.enableUpgrades.forEach((element,i) => {
         document.querySelector(`#grandma-upgrade${i} .info-upgrade`).classList.remove('visible'); 
     });
 });
-farmFarming.enableUpgrades.forEach((element,i) => {
+farmFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="farm-upgrade${i}"></div>`);
     document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',`<i class="fa-solid fa-tractor"></i>`);
     document.getElementById(`farm-upgrade${i}`).addEventListener('click', (event) => {
-        farmFarming.enableUpgrades[i]= true;
-        farmFarming.upgrading(i);
+        farmFarming.upgrades[i].enable= true;
+        farmFarming.upgrading(i,cookie);
         document.getElementById(`farm-upgrade${i}`).remove();
     });
-    document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',`<div class="info-upgrade">${farmFarming.infosUpgrades[i]}</div>`);
+    document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',
+        `<div class="info-upgrade">${farmFarming.upgrades[i].info}<br>Cost : ${farmFarming.upgrades[i].price} <i class="fa-solid fa-cookie"></i></div>`);
     document.getElementById(`farm-upgrade${i}`).addEventListener('mouseover', (event) => {
         document.querySelector(`#farm-upgrade${i} .info-upgrade`).classList.add('visible'); 
     });
@@ -95,7 +98,7 @@ document.getElementById('store-farm').addEventListener('click',(event) => {
 });
 
 // Enable buying buildings in store
-function store(cookie) {
+const store = (cookie) => {
     if(cookie.currentCookies >= cursorFarming.price)
         document.getElementById('store-cursor').classList.add('buying-enabled');
     else
@@ -111,5 +114,24 @@ function store(cookie) {
     else
         document.getElementById('store-farm').classList.remove('buying-enabled');
 
-    // if(cursorFarming.number > 0 )
+    cursorFarming.upgrades.forEach((upgrade, i) => {
+        if(cursorFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+            document.getElementById(`cursor-upgrade${i}`).classList.add('buying-enabled');
+        else if(upgrade.enable == false)
+            document.getElementById(`cursor-upgrade${i}`).classList.remove('buying-enabled');
+    });
+
+    grandMaFarming.upgrades.forEach((upgrade, i) => {
+        if(grandMaFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+            document.getElementById(`grandma-upgrade${i}`).classList.add('buying-enabled');
+        else if(upgrade.enable == false)
+            document.getElementById(`grandma-upgrade${i}`).classList.remove('buying-enabled');
+    });
+
+    farmFarming.upgrades.forEach((upgrade, i) => {
+        if(farmFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+            document.getElementById(`farm-upgrade${i}`).classList.add('buying-enabled');
+        else if(upgrade.enable == false)
+            document.getElementById(`farm-upgrade${i}`).classList.remove('buying-enabled');
+    });
 }
