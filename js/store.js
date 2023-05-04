@@ -28,6 +28,9 @@ document.getElementById('upgrades').addEventListener('click',(event) =>{
 })
 
 // Tab Upgrades content filler
+// const upgradeContentFiller = (arrayFarmingUpgrades,farmName,farmIcon) => {
+
+// }
 cursorFarming.upgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="cursor-upgrade${i}"></div>`);
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
