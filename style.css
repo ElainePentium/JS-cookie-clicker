@@ -132,6 +132,7 @@ aside {
     margin-bottom: 1vh;
     padding: 2vh;
     border-radius: 10px;
+    border-color: var(--dark-color);
     width: 100%;
 }
 

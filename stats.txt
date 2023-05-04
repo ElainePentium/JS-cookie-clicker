@@ -7,21 +7,22 @@
 currentCookies 	    // cookies en banque actuellement
 productedCookies 	// cookies produits depuis le début de la partie
 gameTime 		    // temps actuel depuis le début de la partie
-constructions	    // somme totale de toutes les constructions
+growers     	    // somme totale de toutes les growers       
 cookiesPerSecond	// cookies produits par seconde
+clickedCookies      // cookies produits par clic
 
 /*************************************** OBJETS ****************************************/
 
-Click.number		        // nombre de clics actuellement en fonction
+Cursor.number		        // nombre de clics actuellement en fonction
 GrandMa.number		        // nombre de grand-mères actuellement en fonction
 Farm.number			        // nombre de fermes actuellement en fonction
-Click.inProdCookies		    // cookies produits par un click par seconde
+Cursor.inProdCookies		// cookies produits par un curseur par seconde
 GrandMa.inProdCookies	    // cookies produits par une grand-mère par seconde
 Farm.inProdCookies		    // cookies produits par une ferme par seconde
-Click.inProdAllCookies	    // cookies produits par l'ensemble des clicks par seconde
+Cursor.inProdAllCookies	    // cookies produits par l'ensemble des curseurs par seconde
 GrandMa.inProdAllCookies    // cookies produits par l'ensemble des grand-mères par seconde
 Farm.inProdAllCookies	    // cookies produits par l'ensemble des fermes par seconde
-Click.price			        // le prix de base d'un click
+Cursor.price			    // le prix de base d'un curseur
 GrandMa.price		        // le prix de base d'une grand-mère
 Farm.price			        // le prix de base d'une ferme
 
