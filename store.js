@@ -1,3 +1,13 @@
+// change color of grandma icon on hover
+const grandmaPicture = document.querySelector("#store-grandma img");
+const grandmaBox = document.querySelector("#store-grandma");
+grandmaBox.addEventListener("mouseover", () => {
+    grandmaPicture.src = "pictures/grandma-primary.svg"
+})
+grandmaBox.addEventListener("mouseleave", () => {
+    grandmaPicture.src = "pictures/grandma-secondary.svg"
+})
+
 // Init objects price in store
 document.querySelector('#store-cursor .stats-store').insertAdjacentHTML('beforeend',`Costs ${cursorFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
 document.querySelector('#store-grandma .stats-store').insertAdjacentHTML('beforeend',`Costs ${grandMaFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);

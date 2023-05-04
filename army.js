@@ -1,9 +1,5 @@
-// Instance Objects
-cursorFarming = new Cursor();
-grandMaFarming = new GrandMa();
-farmFarming = new Farm();
-
-setInterval(function() {
+// Function that implements the content view of armies in the left (quantity, production)
+function army(cookie) {
     document.querySelector('#army-cursor .stats-army').innerHTML= "";
     document.querySelector('#CursorNumber').innerHTML= "";
     document.querySelector('#CursorNumber').append(`${cursorFarming.number}`);
@@ -30,13 +26,4 @@ setInterval(function() {
         ${farmFarming.number} farms produce ${farmFarming.inProdAllCookies} <i class="fa-solid fa-cookie"></i> per second<br>
         ${farmFarming.productedCookies.toFixed(0)} <i class="fa-solid fa-cookie"></i> farmed so far
     `);
-    
-    cursorFarming.produce(cookie);
-    grandMaFarming.produce(cookie);
-    farmFarming.produce(cookie);
-
-    cookie.cookiesPerSecond = cursorFarming.inProdAllCookies + grandMaFarming.inProdAllCookies + farmFarming.inProdAllCookies;
-
-    cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`;
-    cookiePSTitle.innerHTML = `${cookie.cookiesPerSecond.toFixed(2)} cookies`;
-},100);
+}
