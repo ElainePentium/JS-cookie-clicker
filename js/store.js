@@ -2,10 +2,10 @@
 const grandmaPicture = document.querySelector("#store-grandma img");
 const grandmaBox = document.querySelector("#store-grandma");
 grandmaBox.addEventListener("mouseover", () => {
-    grandmaPicture.src = "pictures/grandma-primary.svg"
+    grandmaPicture.src = "img/grandma-primary.svg"
 })
 grandmaBox.addEventListener("mouseleave", () => {
-    grandmaPicture.src = "pictures/grandma-secondary.svg"
+    grandmaPicture.src = "img/grandma-secondary.svg"
 })
 
 // Init objects price in store
@@ -46,7 +46,7 @@ cursorFarming.enableUpgrades.forEach((element,i) => {
 });
 grandMaFarming.enableUpgrades.forEach((element,i) => {
     document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="grandma-upgrade${i}"></div>`);
-    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<img src="pictures/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">`);
+    document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
         grandMaFarming.enableUpgrades[i]= true;
         grandMaFarming.upgrading(i);
