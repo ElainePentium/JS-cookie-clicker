@@ -33,7 +33,7 @@ cursorFarming.upgrades.forEach((element,i) => {
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
     document.getElementById(`cursor-upgrade${i}`).addEventListener('click', (event) => {
         cursorFarming.upgrades[i].enable= true;
-        cursorFarming.upgrading(i);
+        cursorFarming.upgrading(i,cookie);
         document.getElementById(`cursor-upgrade${i}`).remove();
     });
     document.getElementById(`cursor-upgrade${i}`).insertAdjacentHTML('beforeend',
@@ -50,7 +50,7 @@ grandMaFarming.upgrades.forEach((element,i) => {
     document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',`<img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">`);
     document.getElementById(`grandma-upgrade${i}`).addEventListener('click', (event) => {
         grandMaFarming.upgrades[i].enable= true;
-        grandMaFarming.upgrading(i);
+        grandMaFarming.upgrading(i,cookie);
         document.getElementById(`grandma-upgrade${i}`).remove();
     });
     document.getElementById(`grandma-upgrade${i}`).insertAdjacentHTML('beforeend',
@@ -67,7 +67,7 @@ farmFarming.upgrades.forEach((element,i) => {
     document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',`<i class="fa-solid fa-tractor"></i>`);
     document.getElementById(`farm-upgrade${i}`).addEventListener('click', (event) => {
         farmFarming.upgrades[i].enable= true;
-        farmFarming.upgrading(i);
+        farmFarming.upgrading(i,cookie);
         document.getElementById(`farm-upgrade${i}`).remove();
     });
     document.getElementById(`farm-upgrade${i}`).insertAdjacentHTML('beforeend',
@@ -114,5 +114,24 @@ function store(cookie) {
     else
         document.getElementById('store-farm').classList.remove('buying-enabled');
 
-    // if(cursorFarming.number > 0 )
+    cursorFarming.upgrades.forEach((upgrade, i) => {
+        if(cursorFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+            document.getElementById(`cursor-upgrade${i}`).classList.add('buying-enabled');
+        else if(upgrade.enable == false)
+            document.getElementById(`cursor-upgrade${i}`).classList.remove('buying-enabled');
+    });
+
+    grandMaFarming.upgrades.forEach((upgrade, i) => {
+        if(grandMaFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+            document.getElementById(`grandma-upgrade${i}`).classList.add('buying-enabled');
+        else if(upgrade.enable == false)
+            document.getElementById(`grandma-upgrade${i}`).classList.remove('buying-enabled');
+    });
+
+    farmFarming.upgrades.forEach((upgrade, i) => {
+        if(farmFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+            document.getElementById(`farm-upgrade${i}`).classList.add('buying-enabled');
+        else if(upgrade.enable == false)
+            document.getElementById(`farm-upgrade${i}`).classList.remove('buying-enabled');
+    });
 }

@@ -25,9 +25,10 @@ class Grower {
         cookie.currentCookies += this.inProdAllCookies/10;
     }
 
-    upgrading(index) {
+    upgrading(index,cookie) {
         if(this.upgrades[index].enable === true) {
             this.upgradeFactor*= this.upgrades[index].factor;
+            cookie.updateCookieAmount(this.upgrades[index].price);
         }
     }
 }
