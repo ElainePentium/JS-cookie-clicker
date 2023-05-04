@@ -229,10 +229,6 @@ i {
 }
 
 #upgrades-tab.is-enable {
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center; */
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
@@ -257,4 +253,14 @@ i {
 
 #upgrades-tab .info-upgrade i {
     font-size: 1rem;
+}
+
+#store-cursor, #store-grandma, #store-farm, .update {
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+#store-cursor.buying-enabled, #store-grandma.buying-enabled, #store-farm.buying-enabled, .update.buying-enabled {
+    pointer-events: auto;
+    opacity: 1;
 }

@@ -1,3 +1,22 @@
+// Main program that refresh cookie status and production
+cursorFarming = new Cursor();
+grandMaFarming = new GrandMa();
+farmFarming = new Farm();
+
+// Produce and refresh view every 100ms
+setInterval(function() {
+    army(cookie);
+    store(cookie);
+    cursorFarming.produce(cookie);
+    grandMaFarming.produce(cookie);
+    farmFarming.produce(cookie);
+
+    cookie.cookiesPerSecond = cursorFarming.inProdAllCookies + grandMaFarming.inProdAllCookies + farmFarming.inProdAllCookies;
+
+    cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`;
+    cookiePSTitle.innerHTML = `${cookie.cookiesPerSecond.toFixed(2)} cookies`;
+},100);
+
 console.log("cookie: ", cookie.currentCookies)
 
 // tab panels behavior - change active tab on click
@@ -30,15 +49,5 @@ const cookiePSTitle = document.querySelector(".title h3");
 const cookieButton = document.querySelector(".cookie");
 cookieButton.addEventListener("click", () => {
     cookie.currentCookies++;
-    cookieTitle.innerHTML = `${cookie.currentCookies} cookies`
-})
-
-// change color of grandma icon on hover
-const grandmaPicture = document.querySelector("#store-grandma img");
-const grandmaBox = document.querySelector("#store-grandma");
-grandmaBox.addEventListener("mouseover", () => {
-    grandmaPicture.src = "pictures/grandma-primary.svg"
-})
-grandmaBox.addEventListener("mouseleave", () => {
-    grandmaPicture.src = "pictures/grandma-secondary.svg"
+    cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`
 })
