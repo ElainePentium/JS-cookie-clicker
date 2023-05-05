@@ -1,12 +1,20 @@
+// Import functions library
+import {upgradeContentFiller, store} from "./library.js";
+import army from "./army.js";
+
 // Main program that refresh cookie status and production
-cursorFarming = new Cursor();
-grandMaFarming = new GrandMa();
-farmFarming = new Farm();
+const cursorFarming = new Cursor();
+const grandMaFarming = new GrandMa();
+const farmFarming = new Farm();
+
+upgradeContentFiller(cursorFarming,'cursor','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
+upgradeContentFiller(grandMaFarming,'grandma','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
+upgradeContentFiller(farmFarming,'farm','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
 
 // Produce and refresh view every 100ms
 setInterval(function() {
-    army(cookie);
-    store(cookie);
+    army(cursorFarming, grandMaFarming, farmFarming);
+    store(cookie, cursorFarming, grandMaFarming, farmFarming);
     cursorFarming.produce(cookie);
     grandMaFarming.produce(cookie);
     farmFarming.produce(cookie);
