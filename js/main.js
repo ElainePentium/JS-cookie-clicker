@@ -6,8 +6,9 @@ import army from "./army.js";
 const cursorFarming = new Cursor();
 const grandMaFarming = new GrandMa();
 const farmFarming = new Farm();
+const farms = [cursorFarming, grandMaFarming, farmFarming];
 
-createStoreTab(cookie, cursorFarming, grandMaFarming, farmFarming);
+createStoreTab(cookie, farms);
 
 // Produce and refresh view every 100ms
 setInterval(function() {

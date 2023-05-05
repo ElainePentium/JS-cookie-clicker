@@ -1,5 +1,5 @@
 // Create elements to buy, upgrades and events listeners in Store Tab
-const createStoreTab = (cookie, cursorFarming, grandMaFarming, farmFarming) => {
+const createStoreTab = (cookie, farms) => {
     // change color of grandma icon on hover
     const grandmaPicture = document.querySelector("#store-grandma img");
     const grandmaBox = document.querySelector("#store-grandma");
@@ -24,17 +24,14 @@ const createStoreTab = (cookie, cursorFarming, grandMaFarming, farmFarming) => {
         document.getElementById('upgrades').classList.add('is-enable');
     });
 
-    buildingsContentFiller(cursorFarming);
-    buildingsContentFiller(grandMaFarming);
-    buildingsContentFiller(farmFarming);    
-
-    upgradeContentFiller(cursorFarming);
-    upgradeContentFiller(grandMaFarming);
-    upgradeContentFiller(farmFarming);
+    farms.forEach(farm => {
+        buildingsContentFiller(cookie, farm);
+        upgradeContentFiller(cookie, farm);
+    });
 }
 
 // Tab Buildings content filler
-const buildingsContentFiller = (farm) => {
+const buildingsContentFiller = (cookie, farm) => {
     // Init objects price in store
     document.querySelector(`#store-${farm.name} .stats-store`).insertAdjacentHTML('beforeend',`Costs ${farm.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
     // Events on buy buildings in store
@@ -46,7 +43,7 @@ const buildingsContentFiller = (farm) => {
 }
 
 // Tab Upgrades content filler
-const upgradeContentFiller = (farm) => {
+const upgradeContentFiller = (cookie, farm) => {
     farm.upgrades.forEach((element,i) => {
         document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="${farm.name}-upgrade${i}"></div>`);
         document.getElementById(`${farm.name}-upgrade${i}`).insertAdjacentHTML('beforeend', farm.icon); //'<i class="fa-sharp fa-solid fa-hand-pointer"></i>'
