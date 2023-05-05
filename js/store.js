@@ -24,50 +24,44 @@ const createStoreTab = (cookie, cursorFarming, grandMaFarming, farmFarming) => {
         document.getElementById('upgrades').classList.add('is-enable');
     });
 
+    buildingsContentFiller(cursorFarming);
+    buildingsContentFiller(grandMaFarming);
+    buildingsContentFiller(farmFarming);    
+
+    upgradeContentFiller(cursorFarming);
+    upgradeContentFiller(grandMaFarming);
+    upgradeContentFiller(farmFarming);
+}
+
+// Tab Buildings content filler
+const buildingsContentFiller = (farm) => {
     // Init objects price in store
-    document.querySelector('#store-cursor .stats-store').insertAdjacentHTML('beforeend',`Costs ${cursorFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
-    document.querySelector('#store-grandma .stats-store').insertAdjacentHTML('beforeend',`Costs ${grandMaFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
-    document.querySelector('#store-farm .stats-store').insertAdjacentHTML('beforeend',`Costs ${farmFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
-
+    document.querySelector(`#store-${farm.name} .stats-store`).insertAdjacentHTML('beforeend',`Costs ${farm.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
     // Events on buy buildings in store
-    document.getElementById('store-cursor').addEventListener('click',(event) => {
+    document.getElementById(`store-${farm.name}`).addEventListener('click',(event) => {
         cursorFarming.buy(cookie);
-        document.querySelector('#store-cursor .stats-store').innerHTML= "";
-        document.querySelector('#store-cursor .stats-store').insertAdjacentHTML('beforeend',`Costs ${cursorFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
+        document.querySelector(`#store-${farm.name} .stats-store`).innerHTML= "";
+        document.querySelector(`#store-${farm.name} .stats-store`).insertAdjacentHTML('beforeend',`Costs ${farm.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
     });
-    document.getElementById('store-grandma').addEventListener('click',(event) => {
-        grandMaFarming.buy(cookie);
-        document.querySelector('#store-grandma .stats-store').innerHTML= "";
-        document.querySelector('#store-grandma .stats-store').insertAdjacentHTML('beforeend',`Costs ${grandMaFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
-    });
-    document.getElementById('store-farm').addEventListener('click',(event) => {
-        farmFarming.buy(cookie);
-        document.querySelector('#store-farm .stats-store').innerHTML= "";
-        document.querySelector('#store-farm .stats-store').insertAdjacentHTML('beforeend',`Costs ${farmFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
-    });
-
-    upgradeContentFiller(cursorFarming,'cursor','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
-    upgradeContentFiller(grandMaFarming,'grandma','<img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">');
-    upgradeContentFiller(farmFarming,'farm','<i class="fa-solid fa-tractor"></i>');
 }
 
 // Tab Upgrades content filler
-const upgradeContentFiller = (farm,objectName,farmIcon) => {
+const upgradeContentFiller = (farm) => {
     farm.upgrades.forEach((element,i) => {
-        document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="${objectName}-upgrade${i}"></div>`);
-        document.getElementById(`${objectName}-upgrade${i}`).insertAdjacentHTML('beforeend', farmIcon); //'<i class="fa-sharp fa-solid fa-hand-pointer"></i>'
-        document.getElementById(`${objectName}-upgrade${i}`).addEventListener('click', (event) => {
+        document.getElementById('upgrades-tab').insertAdjacentHTML('beforeend',`<div class="update" id="${farm.name}-upgrade${i}"></div>`);
+        document.getElementById(`${farm.name}-upgrade${i}`).insertAdjacentHTML('beforeend', farm.icon); //'<i class="fa-sharp fa-solid fa-hand-pointer"></i>'
+        document.getElementById(`${farm.name}-upgrade${i}`).addEventListener('click', (event) => {
             element.enable= true;
             farm.upgrading(i,cookie);
             document.getElementById(`cursor-upgrade${i}`).remove();
         });
-        document.getElementById(`${objectName}-upgrade${i}`).insertAdjacentHTML('beforeend',
+        document.getElementById(`${farm.name}-upgrade${i}`).insertAdjacentHTML('beforeend',
             `<div class="info-upgrade">${element.info}<br>Cost : ${element.price} <i class="fa-solid fa-cookie"></i></div>`);
-        document.getElementById(`${objectName}-upgrade${i}`).addEventListener('mouseover', (event) => {
-            document.querySelector(`#${objectName}-upgrade${i} .info-upgrade`).classList.add('visible'); 
+        document.getElementById(`${farm.name}-upgrade${i}`).addEventListener('mouseover', (event) => {
+            document.querySelector(`#${farm.name}-upgrade${i} .info-upgrade`).classList.add('visible'); 
         });
-        document.getElementById(`${objectName}-upgrade${i}`).addEventListener('mouseout', (event) => {
-            document.querySelector(`#${objectName}-upgrade${i} .info-upgrade`).classList.remove('visible'); 
+        document.getElementById(`${farm.name}-upgrade${i}`).addEventListener('mouseout', (event) => {
+            document.querySelector(`#${farm.name}-upgrade${i} .info-upgrade`).classList.remove('visible'); 
         });
     });
 }
@@ -206,3 +200,25 @@ export {createStoreTab, store};
 //             document.getElementById(`farm-upgrade${i}`).classList.remove('buying-enabled');
 //     });
 // }
+
+// // Init objects price in store
+    // document.querySelector('#store-cursor .stats-store').insertAdjacentHTML('beforeend',`Costs ${cursorFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
+    // document.querySelector('#store-grandma .stats-store').insertAdjacentHTML('beforeend',`Costs ${grandMaFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
+    // document.querySelector('#store-farm .stats-store').insertAdjacentHTML('beforeend',`Costs ${farmFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
+
+    // // Events on buy buildings in store
+    // document.getElementById('store-cursor').addEventListener('click',(event) => {
+    //     cursorFarming.buy(cookie);
+    //     document.querySelector('#store-cursor .stats-store').innerHTML= "";
+    //     document.querySelector('#store-cursor .stats-store').insertAdjacentHTML('beforeend',`Costs ${cursorFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
+    // });
+    // document.getElementById('store-grandma').addEventListener('click',(event) => {
+    //     grandMaFarming.buy(cookie);
+    //     document.querySelector('#store-grandma .stats-store').innerHTML= "";
+    //     document.querySelector('#store-grandma .stats-store').insertAdjacentHTML('beforeend',`Costs ${grandMaFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
+    // });
+    // document.getElementById('store-farm').addEventListener('click',(event) => {
+    //     farmFarming.buy(cookie);
+    //     document.querySelector('#store-farm .stats-store').innerHTML= "";
+    //     document.querySelector('#store-farm .stats-store').insertAdjacentHTML('beforeend',`Costs ${farmFarming.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
+    // });
