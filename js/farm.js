@@ -6,6 +6,7 @@ class Farm extends Grower {
         this.createUpgrades();
         this.name = 'farm';
         this.icon = '<i class="fa-solid fa-tractor"></i>';
+        this.infos = 'Grows cookie plants from cookie seeds';
     }
 
     createUpgrades() {

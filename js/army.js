@@ -1,3 +1,20 @@
+const createArmyTab = (farms) => {
+    farms.forEach(farm => {
+        document.getElementById('army').insertAdjacentHTML('beforeend',
+        `<div class="army-box" id="army-${farm.name}">
+            <div>
+                <div>
+                    ${farm.icon}
+                    ${farm.name}
+                </div>
+                <div id="${farm.name}-number"></div>
+            </div>
+            <div class="stats-army"></div>
+        </div>
+        `);
+    });
+}
+
 // Function that implements the content view of armies in the left (quantity, production)
 const army = (farms) => {
     farms.forEach(farm => {
@@ -12,4 +29,4 @@ const army = (farms) => {
     });
 }
 
-export default army;
+export {createArmyTab, army};

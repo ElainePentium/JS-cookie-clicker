@@ -6,6 +6,7 @@ class Cursor extends Grower {
         this.createUpgrades();
         this.name = 'cursor';
         this.icon = '<i class="fa-sharp fa-solid fa-hand-pointer"></i>';
+        this.infos = 'Autoclicks once every 10 seconds';
     }
 
     createUpgrades() {

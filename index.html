@@ -13,38 +13,8 @@
 </head>
 <body>
     <!-- Left page : army of objects -->
-    <aside>
+    <aside id="army">
         <h2>ARMY</h2>
-        <div class="army-box" id="army-cursor">
-            <div>
-                <div>
-                    <i class="fa-sharp fa-solid fa-hand-pointer"></i>
-                    Cursor
-                </div>
-                <div id="cursor-number"></div>
-            </div>
-            <div class="stats-army"></div>
-        </div>
-        <div class="army-box" id="army-grandma">
-            <div>
-                <div class="box-grandma">
-                    <img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">
-                    Grand-mothers
-                </div>
-                <div id="grandma-number"></div>
-            </div>
-            <div class="stats-army"></div>
-        </div>
-        <div class="army-box" id="army-farm">
-            <div>
-                <div>
-                    <i class="fa-solid fa-tractor"></i>
-                    Farms
-                </div>
-                <div id="farm-number"></div>
-            </div>
-            <div class="stats-army"></div>
-        </div>
     </aside>
     <!-- Center page : Cookie and stats -->
     <main>
@@ -82,32 +52,7 @@
             <li class="tab-store-button is-enable" id="buildings">Buildings</li>
             <li class="tab-store-button" id="upgrades">Upgrades</li>
         </ul>
-        <div class="tab-store-content is-enable" id="buildings-tab">
-            <div class="store-box" id="store-cursor">
-                <div>
-                    <i class="fa-sharp fa-solid fa-hand-pointer"></i>
-                    Cursor
-                </div>
-                <div class="stats-store"></div>
-                <div class="stats-store">Autoclicks once every 10 seconds</div>
-            </div>
-            <div class="store-box" id="store-grandma">
-                <div class="box-grandma">
-                    <img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">
-                    Grand-mothers
-                </div>
-                <div class="stats-store"></div>
-                <div class="stats-store">A nice granny to bake more cookies</div>
-            </div>
-            <div class="store-box" id="store-farm">
-                <div>
-                    <i class="fa-solid fa-tractor"></i>
-                    Farms
-                </div>
-                <div class="stats-store"></div>
-                <div class="stats-store">Grows cookie plants from cookie seeds</div>
-            </div>
-        </div>
+        <div class="tab-store-content is-enable" id="buildings-tab"></div>
         <div class="tab-store-content" id="upgrades-tab"></div>
     </aside>
     <script src="js/cookie.js"></script>

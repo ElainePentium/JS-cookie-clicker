@@ -6,6 +6,7 @@ class GrandMa extends Grower {
         this.createUpgrades();
         this.name = 'grandma';
         this.icon = '<img src="img/grandma-secondary.svg" alt="Grand-mothers" class="grandma-picture">';
+        this.infos = 'A nice granny to bake more cookies';
     }
 
     createUpgrades() {
