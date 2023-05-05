@@ -36,11 +36,11 @@ const updateCookieStats = (cookie) => {
     statsContainer.innerHTML = "";
     statsContainer.insertAdjacentHTML("beforeend",
     `<ul>
-        <li>🍪 in bank: ${cookie.currentCookies.toFixed(0)}</li>
-        <li>🍪 baked: ${cookie.productedCookies.toFixed(0)}</li>
+        <li><i class="fa-solid fa-cookie"></i>in bank: ${cookie.currentCookies.toFixed(0)}</li>
+        <li><i class="fa-solid fa-cookie"></i>baked: ${cookie.productedCookies.toFixed(0)}</li>
         <li>growers owned: ${(cookie.growers).toFixed(0)}</li>
-        <li>🍪 per second: ${(cookie.cookiesPerSecond).toFixed(2)}</li>
-        <li>hand made 🍪: ${cookie.clickedCookies.toFixed(0)}</li>
+        <li><i class="fa-solid fa-cookie"></i>per second: ${(cookie.cookiesPerSecond).toFixed(2)}</li>
+        <li>hand made <i class="fa-solid fa-cookie"></i>: ${cookie.clickedCookies.toFixed(0)}</li>
     </ul>`)
 }
 
@@ -64,62 +64,152 @@ const updateCookieStats = (cookie) => {
 // somme totale de toutes les growers -> growers: 0,
 // temps actuel depuis le début de la partie -> gameTime: 0,
 
-let cursorSuccess1 = "fa-question";
-let isCursor1 = false;
-let cursorSuccess10 = "fa-question";
-let isCursor10 = false;
-let grandmaSuccess1 = "fa-question";
-let isGrandma1 = false;
-let grandmaSuccess10 = "fa-question";
-let isGrandma10 = false;
-let farmSuccess1 = "fa-question";
-let isFarm1 = false;
-let farmSuccess10 = "fa-question";
-let isFarm10 = false;
+// const successObject = {
+//     cookie1: {
+//         icon: "fa-question",
+//         isEnabled: false,
+//         title: ""
+//     },
+//     cookie10: {
+//         icon: "fa-question",
+//         isCookie10: false,
+//         cookie10Title: ""
+//     },
+//     cursor1: {
+//         icon: "fa-question",
+//         isCursor1: false,
+//         cursorSucces1Title: ""
+//     },
+//     cursor10: {
+//         icon: "fa-question",
+//         isCursor10: false,
+//         cursorSucces10Title: ""
+//     },
+//     grandma1: {
+//         icon: "fa-question",
+//         isGrandma1: false,
+//         grandmaSucces1Title: ""},
 
+//     grandma10: {
+//         icon: "fa-question",
+//         isGrandma10: false,
+//         grandmaSucces10Title: ""
+//     },
+//     farm1: {
+//         icon: "fa-question",
+//         isFarm1: false,
+//         farm1Title: ""
+//     },
+//     farm10: {
+//         icon: "fa-question",
+//         isFarm10: false,
+//         farm10Title: ""
+//     }
+// }
+
+successList = ['cookie1', 'cookie10', 'cursor1', 'cursor10', 'grandma1', 'grandma10', 'farm1', 'farm10', 'grower1', 'grower10']
+const successes = {};
+successList.forEach(success => {
+    successes[success] = {
+        icon: "fa-question",
+        isEnabled: false,
+        title: ""
+    }
+});
 
 // successContainer
 const updateSuccess = (cookie) => {
-    if(cursorFarming.number === 1 && !isCursor1) {
-        cursorSuccess1 = "fa-hand-pointer";
-        isCursor1 = true;
+    if(cookie.clickedCookies === 1 && !successes.cookie1.isEnabled) {
+        successes.cookie1.icon = "fa-cookie";
+        successes.cookie1.isEnabled = true;
+        successes.cookie1.title = "Cookie Lover"
     }
-    if(cursorFarming.number === 10 && !isCursor10) {
-        cursorSuccess10 = "fa-hand-pointer";
-        isCursor10 = true;
+    if(cookie.clickedCookies === 10 && !successes.cookie10.isEnabled) {
+        successes.cookie10.icon = "fa-cookie";
+        successes.cookie10.isEnabled = true;
+        successes.cookie10.title = 'Clicastique'
     }
-    if(grandMaFarming.number === 1 && !isGrandma1) {
-        grandmaSuccess1 = "fa-person-cane";
-        isGrandma1 = true;
+    if(cursorFarming.number === 1 && !successes.cursor1.isEnabled) {
+        successes.cursor1.icon = "fa-hand-pointer";
+        successes.cursor1.isEnabled = true;
+        successes.cursor1.title = "Clic"
     }
-    if(grandMaFarming.number === 10 && !isGrandma10) {
-        grandmaSuccess10 = "fa-person-cane";
-        isGrandma10 = true;
+    if(cursorFarming.number === 10 && !successes.cursor10.isEnabled) {
+        successes.cursor10.icon = "fa-hand-pointer";
+        successes.cursor10.isEnabled = true;
+        successes.cursor10.title = 'Double Clic'
     }
-    if(farmFarming.number === 1 && !isFarm1) {
-        farmSuccess1 = "fa-tractor";
-        isFarm1 = true;
+    if(grandMaFarming.number === 1 && !successes.grandma1.isEnabled) {
+        successes.grandma1.icon = "fa-person-cane";
+        successes.grandma1.isEnabled = true;
+        successes.grandma1.title = "Cookie de Mamie";
     }
-    if(farmFarming.number === 10 && !isFarm10) {
-        farmSuccess10 = "fa-tractor";
-        isFarm10 = true;
+    if(grandMaFarming.number === 10 && !successes.grandma10.isEnabled) {
+        successes.grandma10.icon = "fa-person-cane";
+        successes.grandma10.isEnabled = true;
+        successes.grandma10.title = "Baisers Baveux";
+    }
+    if(farmFarming.number === 1 && !successes.farm1.isEnabled) {
+        successes.farm1.icon = "fa-tractor";
+        successes.farm1.isEnabled = true;
+        successes.farm1.title = "C'est du roots";
+    }
+    if(farmFarming.number === 10 && !successes.farm10.isEnabled) {
+        successes.farm10.icon = "fa-tractor";
+        successes.farm10.isEnabled = true;
+        successes.farm10.title = "Farminator";
+    }
+    if(cookie.growers === 1 && !successes.grower1.isEnabled) {
+        successes.grower1.icon = "fa-cookie-bite";
+        successes.grower1.isEnabled = true;
+        successes.grower1.title = "Capitalist";
+    }
+    if(cookie.growers === 10 && !successes.grower10.isEnabled) {
+        successes.grower10.icon = "fa-cookie-bite";
+        successes.grower10.isEnabled = true;
+        successes.grower10.title = "Serial Cooker";
     }
 
     successContainer.innerHTML = "";
     successContainer.insertAdjacentHTML("beforeend",
     `<ul>
-        <li><i class="fa-solid ${cursorSuccess1}" id="first-click"></i></li>
-        <li><i class="fa-solid ${cursorSuccess10}" id="tenth-click"></i></li>
-        <li><i class="fa-solid ${grandmaSuccess1}" id="first-grandma"></i></li>
-        <li><i class="fa-solid ${grandmaSuccess10}" id="tenth-grandma"></i></li>
-        <li><i class="fa-solid ${farmSuccess1}" id="first-farm"></i></li>
-        <li><i class="fa-solid ${farmSuccess10}" id="tenth-farm"></i></li>
-        
+        <li><i class="fa-solid ${successes.cookie1.icon}" id="first-click"></i>${successes.cookie1.title}</li>
+        <li><i class="fa-solid ${successes.cookie10.icon}" id="tenth-click"></i>${successes.cookie10.title}</li>
+        <li><i class="fa-solid ${successes.cursor1.icon}" id="first-click"></i>${successes.cursor1.title}</li>
+        <li><i class="fa-solid ${successes.cursor10.icon}" id="tenth-click"></i>${successes.cursor10.title}</li>
+        <li><i class="fa-solid ${successes.grandma1.icon}" id="first-grandma"></i>${successes.grandma1.title}</li>
+        <li><i class="fa-solid ${successes.grandma10.icon}" id="tenth-grandma"></i>${successes.grandma10.title}</li>
+        <li><i class="fa-solid ${successes.farm1.icon}" id="first-farm"></i>${successes.farm1.title}</li>
+        <li><i class="fa-solid ${successes.farm10.icon}" id="tenth-farm"></i>${successes.farm10.title}</li>
+        <li><i class="fa-solid ${successes.grower1.icon}" id="first-grower"></i>${successes.grower1.title}</li>
+        <li><i class="fa-solid ${successes.grower10.icon}" id="tenth-grower"></i>${successes.grower10.title}</li>
     </ul>`)
 }
 
 /*
-<li><i class="fa-solid fa-question" id="success4"></i></li>
+Casual baking : cuire 10🍪/s  
+Hardore baking : cuire 100🍪/s  
+Cookie Monster : cuire 1 000🍪/s  
+    Cookie Lover : récolte 1🍪 en cliquant
+    Clicastique : récolte 1 000 🍪 en cliquant  
+Clic : Acheter son premier curseur  
+Double Clic : Acheter 50 curseurs  
+    Cookie de Mamie : Acheter sa première mamie  
+    Baisers Baveux : Acheter 50 mamies  
+Retour à la nature : Acheter sa première ferme  
+Récolte ce que tu sèmes : Acheter 50 fermes
+    Constructeur : Avoir 100 bâtiments  
+Sublimeur : Acheter 20 améliorations  
+    Le Cookie d'Or : clique sur un cookie d'or
+
+
+<i class="fa-solid fa-cookie"></i>
+<i class="fa-solid fa-hat-chef"></i>
+<i class="fa-solid fa-gingerbread-man"></i>
+<i class="fa-solid fa-user-chef"></i>
+<i class="fa-solid fa-oven"></i>
+<i class="fa-solid fa-refrigerator"></i>
+
 <i class="fa-solid fa-question"></i>
 <i class="fa-solid fa-hand-pointer"></i>
 <i class="fa-solid fa-person-cane"></i>
@@ -129,5 +219,8 @@ const updateSuccess = (cookie) => {
 <i class="fa-solid fa-industry-windows"></i>
 <i class="fa-solid fa-helmet-safety"></i>
 <i class="fa-solid fa-industry"></i>
-</ul>
+
+<i class="fa-solid fa-cookie-bite"></i>
+
+
 */
