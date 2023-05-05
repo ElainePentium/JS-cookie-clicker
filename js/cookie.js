@@ -17,11 +17,3 @@ const cookie = {
         this.currentCookies -= cookieAmount.toFixed(2);
     },
 };
-
-//     bakeCookie() {
-//         // this.inProdAllCookies= this.inProdCookies*this.number;
-//         // this.productedCookies+= this.inProdAllCookies;
-//     }
-//     timer() {
-//     }
-// }

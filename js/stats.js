@@ -17,10 +17,7 @@ for (let i = 0; i < tabs.length; i++) {
 
         tabs[i].classList.add("is-active");
         tabPanels[i].classList.add("is-active");
-        
-        // console.log(tab)
     })
-    // const tabPanel = tabPanels[i];
 }
 
 
@@ -44,69 +41,7 @@ const updateCookieStats = (cookie) => {
     </ul>`)
 }
 
-// <li>🍪 per click: </li>
-// <li>🍪 clicks: </li>
-// <li>achievments unlocked: c🍪ming s🍪🍪n</li>
-
-
-
 // SUCCESS TAB
-
-// Growers:
-// cursorFarming
-// grandMaFarming
-// farmFarming
-
-// cookies en banque actuellement -> currentCookies: 0,
-// cookies produits par seconde -> cookiesPerSecond: 0.00,
-// cookies produits par clic -> clickedCookies: 0,
-// cookies produits depuis le début de la partie -> productedCookies: 0,
-// somme totale de toutes les growers -> growers: 0,
-// temps actuel depuis le début de la partie -> gameTime: 0,
-
-// const successObject = {
-//     cookie1: {
-//         icon: "fa-question",
-//         isEnabled: false,
-//         title: ""
-//     },
-//     cookie10: {
-//         icon: "fa-question",
-//         isCookie10: false,
-//         cookie10Title: ""
-//     },
-//     cursor1: {
-//         icon: "fa-question",
-//         isCursor1: false,
-//         cursorSucces1Title: ""
-//     },
-//     cursor10: {
-//         icon: "fa-question",
-//         isCursor10: false,
-//         cursorSucces10Title: ""
-//     },
-//     grandma1: {
-//         icon: "fa-question",
-//         isGrandma1: false,
-//         grandmaSucces1Title: ""},
-
-//     grandma10: {
-//         icon: "fa-question",
-//         isGrandma10: false,
-//         grandmaSucces10Title: ""
-//     },
-//     farm1: {
-//         icon: "fa-question",
-//         isFarm1: false,
-//         farm1Title: ""
-//     },
-//     farm10: {
-//         icon: "fa-question",
-//         isFarm10: false,
-//         farm10Title: ""
-//     }
-// }
-
 successList = ['cookie1', 'cookie10', 'cursor1', 'cursor10', 'grandma1', 'grandma10', 'farm1', 'farm10', 'grower1', 'grower10']
 const successes = {};
 successList.forEach(success => {
@@ -185,42 +120,3 @@ const updateSuccess = (cookie) => {
         <li><i class="fa-solid ${successes.grower10.icon}" id="tenth-grower"></i>${successes.grower10.title}</li>
     </ul>`)
 }
-
-/*
-Casual baking : cuire 10🍪/s  
-Hardore baking : cuire 100🍪/s  
-Cookie Monster : cuire 1 000🍪/s  
-    Cookie Lover : récolte 1🍪 en cliquant
-    Clicastique : récolte 1 000 🍪 en cliquant  
-Clic : Acheter son premier curseur  
-Double Clic : Acheter 50 curseurs  
-    Cookie de Mamie : Acheter sa première mamie  
-    Baisers Baveux : Acheter 50 mamies  
-Retour à la nature : Acheter sa première ferme  
-Récolte ce que tu sèmes : Acheter 50 fermes
-    Constructeur : Avoir 100 bâtiments  
-Sublimeur : Acheter 20 améliorations  
-    Le Cookie d'Or : clique sur un cookie d'or
-
-
-<i class="fa-solid fa-cookie"></i>
-<i class="fa-solid fa-hat-chef"></i>
-<i class="fa-solid fa-gingerbread-man"></i>
-<i class="fa-solid fa-user-chef"></i>
-<i class="fa-solid fa-oven"></i>
-<i class="fa-solid fa-refrigerator"></i>
-
-<i class="fa-solid fa-question"></i>
-<i class="fa-solid fa-hand-pointer"></i>
-<i class="fa-solid fa-person-cane"></i>
-<i class="fa-solid fa-tractor"></i>
-
-<i class="fa-solid fa-pickaxe"></i>
-<i class="fa-solid fa-industry-windows"></i>
-<i class="fa-solid fa-helmet-safety"></i>
-<i class="fa-solid fa-industry"></i>
-
-<i class="fa-solid fa-cookie-bite"></i>
-
-
-*/
