@@ -267,7 +267,7 @@ i {
     opacity: 0.3;
 }
 
-#store-cursor.buying-enabled, #store-grandma.buying-enabled, #store-farm.buying-enabled, .update.buying-enabled {
+#store-cursor.buying-enabled, #store-grandma.buying-enabled, #store-farm.buying-enabled, .update.buying-enabled { 
     pointer-events: auto;
     opacity: 1;
 }

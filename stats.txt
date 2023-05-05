@@ -1,5 +1,5 @@
 /****************************************************************************************
-*					STATISQUES					*
+*				                       	STATISQUES	                    				*
 ****************************************************************************************/
 
 /*************************************** COOKIES ***************************************/
@@ -25,9 +25,12 @@ Farm.inProdAllCookies	    // cookies produits par l'ensemble des fermes par seco
 Cursor.price			    // le prix de base d'un curseur
 GrandMa.price		        // le prix de base d'une grand-mère
 Farm.price			        // le prix de base d'une ferme
+upgrades                    // tableau d'objets de type Upgrade
+upgradeFactor               // facteur de multiplication cumulé de toutes les améliorations actives
 
 /************************************* AMELIORATIONS ***********************************/
 
-arrayUpgrades   // tableau des facteurs de mutliplication des améliorations
-upgradeFactor   // facteur de multiplication qui cumule toutes les améliorations actives
-enableUpgrades  // tableau d'activation des améliorations
+upgrade.factor          // facteur de mutliplication de l'amélioration
+upgrade.name            // nom de l'amélioration   
+upgrade.info            // infos de l'amélioration
+upgrade.price           // prix de l'amélioration

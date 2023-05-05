@@ -1,5 +1,5 @@
 // Function that implements the content view of armies in the left (quantity, production)
-function army(cookie) {
+const army = (cookie) => {
     document.querySelector('#army-cursor .stats-army').innerHTML= "";
     document.querySelector('#CursorNumber').innerHTML= "";
     document.querySelector('#CursorNumber').append(`${cursorFarming.number}`);
