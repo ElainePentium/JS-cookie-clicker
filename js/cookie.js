@@ -1,27 +1,19 @@
 const cookie = {
-    currentCookies: 0,
-    productedCookies: 0,
-    gameTime: 0,
-    cookiesPerSecond: 0.0,
+    // cookies en banque actuellement
+    currentCookies: 100000,
+    // cookies produits par seconde
+    cookiesPerSecond: 0.00,
+    // cookies produits poar clic
     clickedCookies: 0,
+    // cookies produits depuis le début de la partie
+    productedCookies: 0,
+    // somme totale de toutes les growers 
+    growers: 0,
+    // temps actuel depuis le début de la partie
+    gameTime: 0,
+
     updateCookieAmount: function(cookieAmount) {
     // return substraction of the price of one cookie grower to the current cookies amount
         this.currentCookies -= cookieAmount.toFixed(2);
     },
 };
-
-// let currentCookies 	// cookies en banque actuellement
-// let productedCookies 	// cookies produits depuis le début de la partie
-// let gameTime 		// temps actuel depuis le début de la partie
-// let constructions	// somme totale de toutes les constructions
-// let inProdCookies = cookiesPerSecond	// cookies produits par seconde
-
-//     bakeCookie() {
-//         // this.inProdAllCookies= this.inProdCookies*this.number;
-//         // this.productedCookies+= this.inProdAllCookies;
-//     }
-//     timer() {
-
-//     }
-
-// }
