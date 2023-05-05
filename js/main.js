@@ -1,5 +1,5 @@
 // Import functions library
-import {upgradeContentFiller, store} from "./library.js";
+import {createStoreTab, store} from "./store.js";
 import army from "./army.js";
 
 // Main program that refresh cookie status and production
@@ -7,9 +7,7 @@ const cursorFarming = new Cursor();
 const grandMaFarming = new GrandMa();
 const farmFarming = new Farm();
 
-upgradeContentFiller(cursorFarming,'cursor','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
-upgradeContentFiller(grandMaFarming,'grandma','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
-upgradeContentFiller(farmFarming,'farm','<i class="fa-sharp fa-solid fa-hand-pointer"></i>');
+createStoreTab(cookie, cursorFarming, grandMaFarming, farmFarming);
 
 // Produce and refresh view every 100ms
 setInterval(function() {
