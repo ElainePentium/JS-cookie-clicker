@@ -1,12 +1,20 @@
+// Import functions library
+import {createStoreTab, store} from "./store.js";
+import {createArmyTab, army} from "./army.js";
+
 // Main program that refresh cookie status and production
-cursorFarming = new Cursor();
-grandMaFarming = new GrandMa();
-farmFarming = new Farm();
+const cursorFarming = new Cursor();
+const grandMaFarming = new GrandMa();
+const farmFarming = new Farm();
+const farms = [cursorFarming, grandMaFarming, farmFarming];
+
+createArmyTab(farms);
+createStoreTab(cookie, farms);
 
 // Produce and refresh view every 100ms
 setInterval(function() {
-    army(cookie);
-    store(cookie);
+    army(farms);
+    store(cookie, farms);
     cursorFarming.produce(cookie);
     grandMaFarming.produce(cookie);
     farmFarming.produce(cookie);
