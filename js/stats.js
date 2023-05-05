@@ -3,29 +3,33 @@ const successContainer = document.querySelector("#tab-success");
 
 // DISPLAY STATS & SUCCESS TAB
 // tab panels behavior - change active tab on click
-const tabs = document.querySelectorAll(".tab");
-const tabPanels = document.querySelectorAll('.tab-panel');
+const createStatsTab = () => {
+    const tabs = document.querySelectorAll(".tab");
+    const tabPanels = document.querySelectorAll('.tab-panel');
 
-for (let i = 0; i < tabs.length; i++) {
-    tabs[i].addEventListener("click", () => {
-        tabs.forEach(tab => {
-            tab.classList.remove("is-active")
-        });
-        tabPanels.forEach(tabPanel => {
-            tabPanel.classList.remove("is-active") 
-        });
+    for (let i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener("click", () => {
+            tabs.forEach(tab => {
+                tab.classList.remove("is-active")
+            });
+            tabPanels.forEach(tabPanel => {
+                tabPanel.classList.remove("is-active") 
+            });
 
-        tabs[i].classList.add("is-active");
-        tabPanels[i].classList.add("is-active");
-    })
+            tabs[i].classList.add("is-active");
+            tabPanels[i].classList.add("is-active");
+        })
+    }
 }
 
-
 // STATS TAB - Update Display
-const updateCookieStats = (cookie) => {
+const updateCookieStats = (cookie, cursorFarming, grandMaFarming, farmFarming) => {
     cookie.cookiesPerSecond = cursorFarming.inProdAllCookies + grandMaFarming.inProdAllCookies + farmFarming.inProdAllCookies;
     cookie.productedCookies = cookie.clickedCookies + cursorFarming.productedCookies + grandMaFarming.productedCookies + farmFarming.productedCookies;
     cookie.growers = cursorFarming.number + grandMaFarming.number + farmFarming.number;
+
+    const cookieTitle = document.querySelector(".cookie-title h1");
+    const cookiePSTitle = document.querySelector("#per-second");
 
     cookieTitle.innerHTML = `${cookie.currentCookies.toFixed(2)} cookies`;
     cookiePSTitle.innerHTML = `${cookie.cookiesPerSecond.toFixed(2)} cookies`;
@@ -42,7 +46,7 @@ const updateCookieStats = (cookie) => {
 }
 
 // SUCCESS TAB
-successList = ['cookie1', 'cookie10', 'cursor1', 'cursor10', 'grandma1', 'grandma10', 'farm1', 'farm10', 'grower1', 'grower10']
+const successList = ['cookie1', 'cookie10', 'cursor1', 'cursor10', 'grandma1', 'grandma10', 'farm1', 'farm10', 'grower1', 'grower10']
 const successes = {};
 successList.forEach(success => {
     successes[success] = {
@@ -53,7 +57,7 @@ successList.forEach(success => {
 });
 
 // successContainer
-const updateSuccess = (cookie) => {
+const updateSuccess = (cookie, cursorFarming, grandMaFarming, farmFarming) => {
     if(cookie.clickedCookies === 1 && !successes.cookie1.isEnabled) {
         successes.cookie1.icon = "fa-cookie";
         successes.cookie1.isEnabled = true;
@@ -120,3 +124,5 @@ const updateSuccess = (cookie) => {
         <li><i class="fa-solid ${successes.grower10.icon}" id="tenth-grower"></i>${successes.grower10.title}</li>
     </ul>`)
 }
+
+export {createStatsTab, updateCookieStats, updateSuccess};

@@ -59,7 +59,7 @@ const upgradeContentFiller = (cookie, farm) => {
         document.getElementById(`${farm.name}-upgrade${i}`).addEventListener('click', (event) => {
             element.enable= true;
             farm.upgrading(i,cookie);
-            document.getElementById(`cursor-upgrade${i}`).remove();
+            document.getElementById(`${farm.name}-upgrade${i}`).remove();
         });
         document.getElementById(`${farm.name}-upgrade${i}`).insertAdjacentHTML('beforeend',
             `<div class="info-upgrade">${element.info}<br>Cost : ${element.price} <i class="fa-solid fa-cookie"></i></div>`);
