@@ -36,7 +36,7 @@ const buildingsContentFiller = (cookie, farm) => {
     document.querySelector(`#store-${farm.name} .stats-store`).insertAdjacentHTML('beforeend',`Costs ${farm.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
     // Events on buy buildings in store
     document.getElementById(`store-${farm.name}`).addEventListener('click',(event) => {
-        cursorFarming.buy(cookie);
+        farm.buy(cookie);
         document.querySelector(`#store-${farm.name} .stats-store`).innerHTML= "";
         document.querySelector(`#store-${farm.name} .stats-store`).insertAdjacentHTML('beforeend',`Costs ${farm.price.toFixed(2)} <i class="fa-solid fa-cookie"></i>`);
     });
@@ -64,42 +64,56 @@ const upgradeContentFiller = (cookie, farm) => {
 }
 
 // Enable buying buildings in store
-const store = (cookie, cursorFarming, grandMaFarming, farmFarming) => {
-    if(cookie.currentCookies >= cursorFarming.price)
-        document.getElementById('store-cursor').classList.add('buying-enabled');
-    else
-        document.getElementById('store-cursor').classList.remove('buying-enabled');
+const store = (cookie, farms) => {
+    farms.forEach(farm => {
+        if(cookie.currentCookies >= farm.price)
+            document.getElementById(`store-${farm.name}`).classList.add('buying-enabled');
+        else
+            document.getElementById(`store-${farm.name}`).classList.remove('buying-enabled');
 
-    if(cookie.currentCookies >= grandMaFarming.price)
-        document.getElementById('store-grandma').classList.add('buying-enabled');
-    else
-        document.getElementById('store-grandma').classList.remove('buying-enabled');
-
-    if(cookie.currentCookies >= farmFarming.price)
-        document.getElementById('store-farm').classList.add('buying-enabled');
-    else
-        document.getElementById('store-farm').classList.remove('buying-enabled');
-
-    cursorFarming.upgrades.forEach((upgrade, i) => {
-        if(cursorFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
-            document.getElementById(`cursor-upgrade${i}`).classList.add('buying-enabled');
-        else if(upgrade.enable == false)
-            document.getElementById(`cursor-upgrade${i}`).classList.remove('buying-enabled');
+        farm.upgrades.forEach((upgrade, i) => {
+            if(farm.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+                document.getElementById(`${farm.name}-upgrade${i}`).classList.add('buying-enabled');
+            else if(upgrade.enable == false)
+                document.getElementById(`${farm.name}-upgrade${i}`).classList.remove('buying-enabled');
+        });
     });
 
-    grandMaFarming.upgrades.forEach((upgrade, i) => {
-        if(grandMaFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
-            document.getElementById(`grandma-upgrade${i}`).classList.add('buying-enabled');
-        else if(upgrade.enable == false)
-            document.getElementById(`grandma-upgrade${i}`).classList.remove('buying-enabled');
-    });
+    // if(cookie.currentCookies >= cursorFarming.price)
+    //     document.getElementById('store-cursor').classList.add('buying-enabled');
+    // else
+    //     document.getElementById('store-cursor').classList.remove('buying-enabled');
 
-    farmFarming.upgrades.forEach((upgrade, i) => {
-        if(farmFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
-            document.getElementById(`farm-upgrade${i}`).classList.add('buying-enabled');
-        else if(upgrade.enable == false)
-            document.getElementById(`farm-upgrade${i}`).classList.remove('buying-enabled');
-    });
+    // if(cookie.currentCookies >= grandMaFarming.price)
+    //     document.getElementById('store-grandma').classList.add('buying-enabled');
+    // else
+    //     document.getElementById('store-grandma').classList.remove('buying-enabled');
+
+    // if(cookie.currentCookies >= farmFarming.price)
+    //     document.getElementById('store-farm').classList.add('buying-enabled');
+    // else
+    //     document.getElementById('store-farm').classList.remove('buying-enabled');
+
+    // cursorFarming.upgrades.forEach((upgrade, i) => {
+    //     if(cursorFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+    //         document.getElementById(`cursor-upgrade${i}`).classList.add('buying-enabled');
+    //     else if(upgrade.enable == false)
+    //         document.getElementById(`cursor-upgrade${i}`).classList.remove('buying-enabled');
+    // });
+
+    // grandMaFarming.upgrades.forEach((upgrade, i) => {
+    //     if(grandMaFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+    //         document.getElementById(`grandma-upgrade${i}`).classList.add('buying-enabled');
+    //     else if(upgrade.enable == false)
+    //         document.getElementById(`grandma-upgrade${i}`).classList.remove('buying-enabled');
+    // });
+
+    // farmFarming.upgrades.forEach((upgrade, i) => {
+    //     if(farmFarming.number > 0 && upgrade.enable == false && cookie.currentCookies >= upgrade.price)
+    //         document.getElementById(`farm-upgrade${i}`).classList.add('buying-enabled');
+    //     else if(upgrade.enable == false)
+    //         document.getElementById(`farm-upgrade${i}`).classList.remove('buying-enabled');
+    // });
 }
 
 export {createStoreTab, store};

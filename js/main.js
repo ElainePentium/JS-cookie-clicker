@@ -12,8 +12,8 @@ createStoreTab(cookie, farms);
 
 // Produce and refresh view every 100ms
 setInterval(function() {
-    army(cursorFarming, grandMaFarming, farmFarming);
-    store(cookie, cursorFarming, grandMaFarming, farmFarming);
+    army(farms);
+    store(cookie, farms);
     cursorFarming.produce(cookie);
     grandMaFarming.produce(cookie);
     farmFarming.produce(cookie);
